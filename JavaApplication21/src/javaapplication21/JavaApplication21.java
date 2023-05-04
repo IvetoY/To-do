@@ -17,6 +17,7 @@ public class JavaApplication21 {
         // TODO code application logic here
         System.out.println("Hello world");
         System.out.println("727272");
+        System.out.println("66566");
     }
     
 }
