@@ -94,7 +94,7 @@ public class Calendar extends javax.swing.JFrame {
         A.setText(d.get(26));
         B.setText(d.get(27));
         C.setText(d.get(28));
-      /* D.setText(d.get(29));  
+      /* D.setText(d.get(29));   proba
         E.setText(d.get(30));
         F.setText(d.get(31));
         G.setText(d.get(32));
