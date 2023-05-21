@@ -64,6 +64,7 @@ public class Calendar extends javax.swing.JFrame {
             }
         }
         zap(d,day);
+        
         a.setText(d.get(0));//moche i linked list w opaska da go naprawim
         b.setText(d.get(1));
         c.setText(d.get(2));
@@ -78,7 +79,36 @@ public class Calendar extends javax.swing.JFrame {
         l.setText(d.get(11));
         m1.setText(d.get(12));
         n.setText(d.get(13));
-        data2.setText(m+","+y);
+        o.setText(d.get(14));
+        p.setText(d.get(15));
+        q.setText(d.get(16));
+        r.setText(d.get(17));
+        s.setText(d.get(18));
+        t.setText(d.get(19));
+        u.setText(d.get(20));
+        v.setText(d.get(21));
+        w.setText(d.get(22));
+        x.setText(d.get(23));
+        y1.setText(d.get(24));
+        z.setText(d.get(25));
+        A.setText(d.get(26));
+        B.setText(d.get(27));
+        C.setText(d.get(28));
+      /* D.setText(d.get(29));  
+        E.setText(d.get(30));
+        F.setText(d.get(31));
+        G.setText(d.get(32));
+        H.setText(d.get(33));
+        I.setText(d.get(34));
+        J.setText(d.get(35));
+        K.setText(d.get(36));
+        /*L.setText(d.get(37));
+        M.setText(d.get(38));
+        N.setText(d.get(39));
+        O.setText(d.get(40));
+        P.setText(d.get(41));
+        */
+        data2.setText(m+"/"+y);
         
     }
     public void zap(LinkedList d, String day){
@@ -182,7 +212,7 @@ public class Calendar extends javax.swing.JFrame {
         d1 = new javax.swing.JLabel();
         r = new javax.swing.JLabel();
         q = new javax.swing.JLabel();
-        y = new javax.swing.JLabel();
+        y1 = new javax.swing.JLabel();
         F = new javax.swing.JLabel();
         k = new javax.swing.JLabel();
         M = new javax.swing.JLabel();
@@ -213,6 +243,7 @@ public class Calendar extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         data2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -235,7 +266,8 @@ public class Calendar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
+        jButton1.setText("<");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -322,9 +354,9 @@ public class Calendar extends javax.swing.JFrame {
         q.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         q.setText("1");
 
-        y.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        y.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        y.setText("1");
+        y1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        y1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        y1.setText("1");
 
         F.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         F.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -474,7 +506,7 @@ public class Calendar extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(x, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(y1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(z, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -550,7 +582,7 @@ public class Calendar extends javax.swing.JFrame {
                             .addComponent(v, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(w, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(x, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(y, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(y1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(z, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -566,7 +598,7 @@ public class Calendar extends javax.swing.JFrame {
                             .addComponent(L, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(M, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(N, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
@@ -626,35 +658,47 @@ public class Calendar extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        data2.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
+        data2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         data2.setText("jLabel1");
+
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
+        jButton2.setText(">");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(27, 27, 27))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(data2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(data2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 210, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(data2)
-                .addGap(32, 32, 32)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(data2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -673,7 +717,7 @@ public class Calendar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -683,7 +727,7 @@ public class Calendar extends javax.swing.JFrame {
         // TODO add your handling code here:
         String w1 = data2.getText();
         //int r = Integer.parseInt(w);
-        String[] sp = w1.split(",");
+        String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
         int x2 = Integer.parseInt(sp[1]);
         if(r2==1){
@@ -700,6 +744,20 @@ public class Calendar extends javax.swing.JFrame {
         //jLabel1.setText(a[2]);
         //jLabel2.setText(a[])
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         String w1 = data2.getText();
+        
+        String[] sp = w1.split("/");
+        int r2 = Integer.parseInt(sp[0]);
+        int x2 = Integer.parseInt(sp[1]);
+        if(r2==1){
+            r2 = 13;
+            x2 = x2+1;
+        }
+        den(x2,r2+1);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -765,6 +823,7 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JLabel i1;
     private javax.swing.JLabel j;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -791,7 +850,7 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JLabel v;
     private javax.swing.JLabel w;
     private javax.swing.JLabel x;
-    private javax.swing.JLabel y;
+    private javax.swing.JLabel y1;
     private javax.swing.JLabel z;
     // End of variables declaration//GEN-END:variables
 }
