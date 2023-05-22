@@ -29,7 +29,7 @@ public class Calendar extends javax.swing.JFrame {
         //System.out.println(day);
         String h1;
         if(m==4 || m==6 || m==9 || m==11){
-            for(int i=1;i<=31;i++){
+            for(int i=1;i<=42;i++){
                 if(i<=30){
                     h1 = Integer.toString(i);
                     d.add(h1);
@@ -39,10 +39,15 @@ public class Calendar extends javax.swing.JFrame {
                 }
             }
         }
-        else if(m==3 || m==5 || m==7 || m==8 || m==10 || m==12){
-            for(int i=1;i<=31;i++){
-                h1 = Integer.toString(i);
-                d.add(h1);
+        else if(m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12){
+            for(int i=1;i<=42;i++){
+                if(i<=31){
+                    h1 = Integer.toString(i);
+                    d.add(h1);
+                }
+                else{
+                    d.add("");
+                }
             }
         }
         else{
@@ -53,7 +58,7 @@ public class Calendar extends javax.swing.JFrame {
             else{
                 r = 28;
             }
-            for(int i=1;i<=31;i++){
+            for(int i=1;i<=42;i++){
                 if(i<=r){
                     h1 = Integer.toString(i);
                     d.add(h1);
@@ -94,7 +99,7 @@ public class Calendar extends javax.swing.JFrame {
         A.setText(d.get(26));
         B.setText(d.get(27));
         C.setText(d.get(28));
-      /* D.setText(d.get(29));   proba
+        D.setText(d.get(29));
         E.setText(d.get(30));
         F.setText(d.get(31));
         G.setText(d.get(32));
@@ -102,12 +107,11 @@ public class Calendar extends javax.swing.JFrame {
         I.setText(d.get(34));
         J.setText(d.get(35));
         K.setText(d.get(36));
-        /*L.setText(d.get(37));
+        L.setText(d.get(37));
         M.setText(d.get(38));
         N.setText(d.get(39));
         O.setText(d.get(40));
         P.setText(d.get(41));
-        */
         data2.setText(m+"/"+y);
         
     }
@@ -747,13 +751,12 @@ public class Calendar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         String w1 = data2.getText();
-        
+        String w1 = data2.getText();
         String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
         int x2 = Integer.parseInt(sp[1]);
-        if(r2==1){
-            r2 = 13;
+        if(r2==12){
+            r2 = 0;
             x2 = x2+1;
         }
         den(x2,r2+1);
