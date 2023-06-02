@@ -1087,23 +1087,23 @@ public class Calendar extends javax.swing.JFrame {
     }
     public void textButtons(){
         if(a.getText().equals(" ")){
-            a.setVisible(false);
+            a.setEnabled(false);
         }
         if(b.getText().equals(" ")){
-            b.setVisible(false);
+            b.setEnabled(false);
         }
         if(c.getText().equals(" ")){
-            c.setVisible(false);
+            c.setEnabled(false);
             System.out.println(E.getText());
         }
         if(d1.getText().equals(" ")){
-            d1.setVisible(false);
+            d1.setEnabled(false);
         }
         if(e.getText().equals(" ")){
-            e.setVisible(false);
+            e.setEnabled(false);
         }
         if(f.getText().equals(" ")){
-            f.setVisible(false);
+            f.setEnabled(false);
         }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
