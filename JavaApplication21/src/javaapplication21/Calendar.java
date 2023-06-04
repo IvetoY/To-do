@@ -26,6 +26,7 @@ public class Calendar extends javax.swing.JFrame {
     }
     
     public void den(int y, int m){
+        
         LinkedList<String> d = new LinkedList<>();
         //ot startowata stranica ot tam ste naprawim default tozi mesec
         //String today = date.getDayOfWeek().toString();
@@ -180,7 +181,7 @@ public class Calendar extends javax.swing.JFrame {
         int y = Integer.parseInt(a[0]);
         int m = Integer.parseInt(a[1]);
         den(y,m);
-        textButtons();
+        textButtonsFalse();
         
         
     }
@@ -194,8 +195,6 @@ public class Calendar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -262,25 +261,6 @@ public class Calendar extends javax.swing.JFrame {
         data2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel3)
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
@@ -297,6 +277,11 @@ public class Calendar extends javax.swing.JFrame {
         h.setBorderPainted(false);
         h.setContentAreaFilled(false);
         h.setPreferredSize(new java.awt.Dimension(60, 49));
+        h.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hActionPerformed(evt);
+            }
+        });
 
         v.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         v.setText("1");
@@ -304,6 +289,11 @@ public class Calendar extends javax.swing.JFrame {
         v.setBorderPainted(false);
         v.setContentAreaFilled(false);
         v.setPreferredSize(new java.awt.Dimension(60, 49));
+        v.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vActionPerformed(evt);
+            }
+        });
 
         o.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         o.setText("1");
@@ -311,6 +301,11 @@ public class Calendar extends javax.swing.JFrame {
         o.setBorderPainted(false);
         o.setContentAreaFilled(false);
         o.setPreferredSize(new java.awt.Dimension(60, 49));
+        o.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oActionPerformed(evt);
+            }
+        });
 
         i1.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         i1.setText("1");
@@ -318,6 +313,11 @@ public class Calendar extends javax.swing.JFrame {
         i1.setBorderPainted(false);
         i1.setContentAreaFilled(false);
         i1.setPreferredSize(new java.awt.Dimension(60, 49));
+        i1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i1ActionPerformed(evt);
+            }
+        });
 
         p.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         p.setText("1");
@@ -325,6 +325,11 @@ public class Calendar extends javax.swing.JFrame {
         p.setBorderPainted(false);
         p.setContentAreaFilled(false);
         p.setPreferredSize(new java.awt.Dimension(60, 49));
+        p.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pActionPerformed(evt);
+            }
+        });
 
         w.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         w.setText("1");
@@ -332,6 +337,11 @@ public class Calendar extends javax.swing.JFrame {
         w.setBorderPainted(false);
         w.setContentAreaFilled(false);
         w.setPreferredSize(new java.awt.Dimension(60, 49));
+        w.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wActionPerformed(evt);
+            }
+        });
 
         j.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         j.setText("1");
@@ -339,6 +349,11 @@ public class Calendar extends javax.swing.JFrame {
         j.setBorderPainted(false);
         j.setContentAreaFilled(false);
         j.setPreferredSize(new java.awt.Dimension(60, 49));
+        j.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jActionPerformed(evt);
+            }
+        });
 
         q.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         q.setText("1");
@@ -346,6 +361,11 @@ public class Calendar extends javax.swing.JFrame {
         q.setBorderPainted(false);
         q.setContentAreaFilled(false);
         q.setPreferredSize(new java.awt.Dimension(60, 49));
+        q.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qActionPerformed(evt);
+            }
+        });
 
         x.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         x.setText("1");
@@ -365,6 +385,11 @@ public class Calendar extends javax.swing.JFrame {
         k.setBorderPainted(false);
         k.setContentAreaFilled(false);
         k.setPreferredSize(new java.awt.Dimension(60, 49));
+        k.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kActionPerformed(evt);
+            }
+        });
 
         r.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         r.setText("1");
@@ -372,6 +397,11 @@ public class Calendar extends javax.swing.JFrame {
         r.setBorderPainted(false);
         r.setContentAreaFilled(false);
         r.setPreferredSize(new java.awt.Dimension(60, 49));
+        r.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rActionPerformed(evt);
+            }
+        });
 
         y1.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         y1.setText("1");
@@ -379,6 +409,11 @@ public class Calendar extends javax.swing.JFrame {
         y1.setBorderPainted(false);
         y1.setContentAreaFilled(false);
         y1.setPreferredSize(new java.awt.Dimension(60, 49));
+        y1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                y1ActionPerformed(evt);
+            }
+        });
 
         l.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         l.setText("1");
@@ -386,6 +421,11 @@ public class Calendar extends javax.swing.JFrame {
         l.setBorderPainted(false);
         l.setContentAreaFilled(false);
         l.setPreferredSize(new java.awt.Dimension(60, 49));
+        l.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lActionPerformed(evt);
+            }
+        });
 
         s.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         s.setText("1");
@@ -393,6 +433,11 @@ public class Calendar extends javax.swing.JFrame {
         s.setBorderPainted(false);
         s.setContentAreaFilled(false);
         s.setPreferredSize(new java.awt.Dimension(60, 49));
+        s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sActionPerformed(evt);
+            }
+        });
 
         z.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         z.setText("1");
@@ -400,6 +445,11 @@ public class Calendar extends javax.swing.JFrame {
         z.setBorderPainted(false);
         z.setContentAreaFilled(false);
         z.setPreferredSize(new java.awt.Dimension(60, 49));
+        z.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zActionPerformed(evt);
+            }
+        });
 
         m1.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         m1.setText("1");
@@ -407,6 +457,11 @@ public class Calendar extends javax.swing.JFrame {
         m1.setBorderPainted(false);
         m1.setContentAreaFilled(false);
         m1.setPreferredSize(new java.awt.Dimension(60, 49));
+        m1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m1ActionPerformed(evt);
+            }
+        });
 
         t.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         t.setText("1");
@@ -414,6 +469,11 @@ public class Calendar extends javax.swing.JFrame {
         t.setBorderPainted(false);
         t.setContentAreaFilled(false);
         t.setPreferredSize(new java.awt.Dimension(60, 49));
+        t.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tActionPerformed(evt);
+            }
+        });
 
         A.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         A.setText("1");
@@ -421,6 +481,11 @@ public class Calendar extends javax.swing.JFrame {
         A.setBorderPainted(false);
         A.setContentAreaFilled(false);
         A.setPreferredSize(new java.awt.Dimension(60, 49));
+        A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AActionPerformed(evt);
+            }
+        });
 
         g.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         g.setText("1");
@@ -428,6 +493,11 @@ public class Calendar extends javax.swing.JFrame {
         g.setBorderPainted(false);
         g.setContentAreaFilled(false);
         g.setPreferredSize(new java.awt.Dimension(60, 49));
+        g.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gActionPerformed(evt);
+            }
+        });
 
         n.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         n.setText("1");
@@ -435,6 +505,11 @@ public class Calendar extends javax.swing.JFrame {
         n.setBorderPainted(false);
         n.setContentAreaFilled(false);
         n.setPreferredSize(new java.awt.Dimension(60, 49));
+        n.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nActionPerformed(evt);
+            }
+        });
 
         u.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         u.setText("1");
@@ -442,6 +517,11 @@ public class Calendar extends javax.swing.JFrame {
         u.setBorderPainted(false);
         u.setContentAreaFilled(false);
         u.setPreferredSize(new java.awt.Dimension(60, 49));
+        u.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uActionPerformed(evt);
+            }
+        });
 
         B.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         B.setText("1");
@@ -449,6 +529,11 @@ public class Calendar extends javax.swing.JFrame {
         B.setBorderPainted(false);
         B.setContentAreaFilled(false);
         B.setPreferredSize(new java.awt.Dimension(60, 49));
+        B.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BActionPerformed(evt);
+            }
+        });
 
         c.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
         c.setText("1");
@@ -566,6 +651,11 @@ public class Calendar extends javax.swing.JFrame {
         e.setBorderPainted(false);
         e.setContentAreaFilled(false);
         e.setPreferredSize(new java.awt.Dimension(60, 49));
+        e.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -588,6 +678,11 @@ public class Calendar extends javax.swing.JFrame {
         f.setBorderPainted(false);
         f.setContentAreaFilled(false);
         f.setPreferredSize(new java.awt.Dimension(60, 49));
+        f.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -637,6 +732,11 @@ public class Calendar extends javax.swing.JFrame {
         D.setBorderPainted(false);
         D.setContentAreaFilled(false);
         D.setPreferredSize(new java.awt.Dimension(60, 49));
+        D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -686,6 +786,11 @@ public class Calendar extends javax.swing.JFrame {
         F.setBorderPainted(false);
         F.setContentAreaFilled(false);
         F.setPreferredSize(new java.awt.Dimension(60, 49));
+        F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -708,6 +813,11 @@ public class Calendar extends javax.swing.JFrame {
         G.setBorderPainted(false);
         G.setContentAreaFilled(false);
         G.setPreferredSize(new java.awt.Dimension(60, 49));
+        G.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -730,6 +840,11 @@ public class Calendar extends javax.swing.JFrame {
         H.setBorderPainted(false);
         H.setContentAreaFilled(false);
         H.setPreferredSize(new java.awt.Dimension(60, 49));
+        H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -752,6 +867,11 @@ public class Calendar extends javax.swing.JFrame {
         I.setBorderPainted(false);
         I.setContentAreaFilled(false);
         I.setPreferredSize(new java.awt.Dimension(60, 49));
+        I.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -774,6 +894,11 @@ public class Calendar extends javax.swing.JFrame {
         J.setBorderPainted(false);
         J.setContentAreaFilled(false);
         J.setPreferredSize(new java.awt.Dimension(60, 49));
+        J.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -796,6 +921,11 @@ public class Calendar extends javax.swing.JFrame {
         K.setBorderPainted(false);
         K.setContentAreaFilled(false);
         K.setPreferredSize(new java.awt.Dimension(60, 49));
+        K.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1085,7 +1215,25 @@ public class Calendar extends javax.swing.JFrame {
         a.show();
         dispose();
     }
-    public void textButtons(){
+   public void textButtonsTrue(){
+        a.setEnabled(true);
+        b.setEnabled(true);
+        c.setEnabled(true);
+        d1.setEnabled(true);
+        e.setEnabled(true);
+        f.setEnabled(true);
+        C.setEnabled(true);
+        D.setEnabled(true);
+        E.setEnabled(true);
+        F.setEnabled(true);
+        G.setEnabled(true);
+        H.setEnabled(true);
+        I.setEnabled(true);
+        J.setEnabled(true);
+        K.setEnabled(true);
+    }
+    
+    public void textButtonsFalse() {
         if(a.getText().equals(" ")){
             a.setEnabled(false);
         }
@@ -1094,7 +1242,6 @@ public class Calendar extends javax.swing.JFrame {
         }
         if(c.getText().equals(" ")){
             c.setEnabled(false);
-            System.out.println(E.getText());
         }
         if(d1.getText().equals(" ")){
             d1.setEnabled(false);
@@ -1105,9 +1252,36 @@ public class Calendar extends javax.swing.JFrame {
         if(f.getText().equals(" ")){
             f.setEnabled(false);
         }
+        if(C.getText().equals(" ")){
+            C.setEnabled(false);
+        }
+        if(D.getText().equals(" ")){
+            D.setEnabled(false);
+        }
+        if(E.getText().equals(" ")){
+            E.setEnabled(false);
+        }
+        if(F.getText().equals(" ")){
+            F.setEnabled(false);
+        }
+        if(G.getText().equals(" ")){
+            G.setEnabled(false);
+        }
+        if(H.getText().equals(" ")){
+            H.setEnabled(false);
+        }
+        if(I.getText().equals(" ")){
+            I.setEnabled(false);
+        }
+        if(J.getText().equals(" ")){
+            J.setEnabled(false);
+        }
+        if(K.getText().equals(" ")){
+            K.setEnabled(false);
+        }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      textButtonsTrue();
         String w1 = data2.getText();
         //int r = Integer.parseInt(w);
         String[] sp = w1.split("/");
@@ -1118,7 +1292,7 @@ public class Calendar extends javax.swing.JFrame {
             x2 = x2-1;
         }
         den(x2,r2-1);
-        
+        textButtonsFalse();
         //prowerqwame kolko dni ima
         //s metod towa koeto prawim i w nachaloto
         
@@ -1130,7 +1304,7 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       textButtonsTrue();
         String w1 = data2.getText();
         String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
@@ -1140,7 +1314,7 @@ public class Calendar extends javax.swing.JFrame {
             x2 = x2+1;
         }
         den(x2,r2+1);
-        
+        textButtonsFalse();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel4VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel4VetoableChange
@@ -1148,35 +1322,265 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4VetoableChange
 
     private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
-        click();
-            
+        
+       String a2= a.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();  
     }//GEN-LAST:event_aActionPerformed
 
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
-        // TODO add your handling code here:
-        click();
+        String a2= E.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_EActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
-        // TODO add your handling code here:
-        click();
+        String a2= c.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_cActionPerformed
 
     private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
-        // TODO add your handling code here:
+       String a2= x.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_xActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
-        // TODO add your handling code here:
+       String a2= b.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_bActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-        // TODO add your handling code here:
+        String a2= d1.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_d1ActionPerformed
 
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
-        // TODO add your handling code here:
+        String a2= C.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
     }//GEN-LAST:event_CActionPerformed
+
+    private void eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eActionPerformed
+        String a2= e.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); // TODO add your handling code here:
+    }//GEN-LAST:event_eActionPerformed
+
+    private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
+       String a2= f.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();  // TODO add your handling code here:
+    }//GEN-LAST:event_fActionPerformed
+
+    private void gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gActionPerformed
+String a2= g.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_gActionPerformed
+
+    private void hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hActionPerformed
+String a2= h.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_hActionPerformed
+
+    private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
+String a2= i1.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_i1ActionPerformed
+
+    private void jActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jActionPerformed
+String a2= j.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_jActionPerformed
+
+    private void kActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kActionPerformed
+String a2= k.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_kActionPerformed
+
+    private void lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lActionPerformed
+      String a2= I.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();   // TODO add your handling code here:
+    }//GEN-LAST:event_lActionPerformed
+
+    private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
+String a2= m1.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_m1ActionPerformed
+
+    private void nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nActionPerformed
+       String a2= n.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
+    }//GEN-LAST:event_nActionPerformed
+
+    private void oActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oActionPerformed
+        // TODO add your handling code here:
+        String a2= o.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
+    }//GEN-LAST:event_oActionPerformed
+
+    private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
+        String a2= p.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
+    }//GEN-LAST:event_pActionPerformed
+
+    private void qActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qActionPerformed
+        String a2= q.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
+    }//GEN-LAST:event_qActionPerformed
+
+    private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
+        String a2= r.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click(); 
+    }//GEN-LAST:event_rActionPerformed
+
+    private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
+String a2= s.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_sActionPerformed
+
+    private void tActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tActionPerformed
+String a2= t.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_tActionPerformed
+
+    private void uActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uActionPerformed
+String a2= u.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_uActionPerformed
+
+    private void vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vActionPerformed
+String a2= v.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_vActionPerformed
+
+    private void wActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wActionPerformed
+String a2= w.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_wActionPerformed
+
+    private void y1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_y1ActionPerformed
+String a2= y1.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_y1ActionPerformed
+
+    private void zActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zActionPerformed
+String a2= z.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_zActionPerformed
+
+    private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
+String a2= A.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_AActionPerformed
+
+    private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
+String a2= B.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_BActionPerformed
+
+    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
+String a2= D.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_DActionPerformed
+
+    private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
+String a2= F.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_FActionPerformed
+
+    private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
+String a2= G.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_GActionPerformed
+
+    private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
+String a2= H.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_HActionPerformed
+
+    private void IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IActionPerformed
+String a2= I.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_IActionPerformed
+
+    private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
+String a2= J.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_JActionPerformed
+
+    private void KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KActionPerformed
+String a2= K.getText();
+       a2+="/"+data2.getText();
+       Appointment.setD(a2);
+       click();         // TODO add your handling code here:
+    }//GEN-LAST:event_KActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1226,14 +1630,11 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JButton J;
     private javax.swing.JButton K;
     private javax.swing.JButton a;
-    private javax.swing.JButton a1;
-    private javax.swing.JButton a2;
     private javax.swing.JButton b;
     private javax.swing.JButton c;
     private javax.swing.JButton d1;
     private javax.swing.JLabel data2;
     private javax.swing.JButton e;
-    private javax.swing.JButton e1;
     private javax.swing.JButton f;
     private javax.swing.JButton g;
     private javax.swing.JButton h;
@@ -1242,7 +1643,6 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1251,7 +1651,6 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -1264,12 +1663,9 @@ public class Calendar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JButton k;
     private javax.swing.JButton l;
