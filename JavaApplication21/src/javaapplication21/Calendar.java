@@ -19,6 +19,7 @@ public class Calendar extends javax.swing.JFrame {
      */
     public Calendar() {
         initComponents();
+        setResizable(false);
         Label1();
         setLocationRelativeTo(null);
          
@@ -41,7 +42,7 @@ public class Calendar extends javax.swing.JFrame {
                     d.add(h1);
                 }
                 else{
-                    d.add("");
+                    d.add(" ");
                 }
             }
         }
@@ -52,7 +53,7 @@ public class Calendar extends javax.swing.JFrame {
                     d.add(h1);
                 }
                 else{
-                    d.add("");
+                    d.add(" ");
                 }
             }
         }
@@ -70,7 +71,7 @@ public class Calendar extends javax.swing.JFrame {
                     d.add(h1);
                 }
                 else{
-                    d.add("");
+                    d.add(" ");
                 }
             }
         }
@@ -262,6 +263,7 @@ public class Calendar extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
         jButton1.setText("<");
