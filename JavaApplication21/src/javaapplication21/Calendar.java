@@ -1234,7 +1234,7 @@ public class Calendar extends javax.swing.JFrame {
         J.setEnabled(true);
         K.setEnabled(true);
     }
-    
+   
     public void textButtonsFalse() {
         if(a.getText().equals(" ")){
             a.setEnabled(false);

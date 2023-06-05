@@ -20,15 +20,15 @@ public class Appointment extends javax.swing.JFrame {
     }
     public static String d;
 
-public static String getD(){
-    return d;
-}
-public static void setD(String d){
-    Appointment.d=d;
-}
-public void labelDate(){
- date.setText(getD());   
-}
+    public static String getD(){
+        return d;
+    }
+    public static void setD(String d){
+        Appointment.d=d;
+    }
+    public void labelDate(){
+        date.setText(getD());   
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,7 +75,7 @@ public void labelDate(){
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
