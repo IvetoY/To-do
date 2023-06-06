@@ -1306,7 +1306,7 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       textButtonsTrue();
+        textButtonsTrue();
         String w1 = data2.getText();
         String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
