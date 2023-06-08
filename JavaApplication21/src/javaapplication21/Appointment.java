@@ -76,7 +76,7 @@ public class Appointment extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(810, 561));
+        setPreferredSize(new java.awt.Dimension(810, 600));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(810, 603));
 
@@ -100,71 +100,71 @@ public class Appointment extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jCheckBox1.setBackground(new java.awt.Color(204, 255, 255));
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("yhuga");
-        jCheckBox1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox1.setBorderPainted(true);
-        jCheckBox1.setBorderPaintedFlat(true);
+        jCheckBox1.setContentAreaFilled(false);
 
-        jCheckBox2.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setText("yhuga");
-        jCheckBox2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox2.setBorderPainted(true);
-        jCheckBox2.setBorderPaintedFlat(true);
+        jCheckBox2.setContentAreaFilled(false);
 
-        jCheckBox3.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox3.setText("yhuga");
-        jCheckBox3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox3.setBorderPainted(true);
-        jCheckBox3.setBorderPaintedFlat(true);
+        jCheckBox3.setContentAreaFilled(false);
 
-        jCheckBox4.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox4.setText("yhuga");
-        jCheckBox4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox4.setBorderPainted(true);
-        jCheckBox4.setBorderPaintedFlat(true);
+        jCheckBox4.setContentAreaFilled(false);
 
-        jCheckBox5.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox5.setText("yhuga");
-        jCheckBox5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox5.setBorderPainted(true);
-        jCheckBox5.setBorderPaintedFlat(true);
+        jCheckBox5.setContentAreaFilled(false);
 
-        jCheckBox6.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox6.setText("yhuga");
-        jCheckBox6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox6.setBorderPainted(true);
-        jCheckBox6.setBorderPaintedFlat(true);
+        jCheckBox6.setContentAreaFilled(false);
 
-        jCheckBox7.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox7.setText("yhuga");
-        jCheckBox7.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox7.setBorderPainted(true);
-        jCheckBox7.setBorderPaintedFlat(true);
+        jCheckBox7.setContentAreaFilled(false);
 
-        jCheckBox8.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox8.setText("yhuga");
-        jCheckBox8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox8.setBorderPainted(true);
-        jCheckBox8.setBorderPaintedFlat(true);
+        jCheckBox8.setContentAreaFilled(false);
 
-        jCheckBox9.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox9.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox9.setText("yhuga");
-        jCheckBox9.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox9.setBorderPainted(true);
-        jCheckBox9.setBorderPaintedFlat(true);
+        jCheckBox9.setContentAreaFilled(false);
 
-        jCheckBox10.setBackground(new java.awt.Color(153, 255, 255));
+        jCheckBox10.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox10.setText("yhuga");
-        jCheckBox10.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.black, java.awt.Color.gray));
+        jCheckBox10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCheckBox10.setBorderPainted(true);
-        jCheckBox10.setBorderPaintedFlat(true);
+        jCheckBox10.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -206,7 +206,7 @@ public class Appointment extends javax.swing.JFrame {
                 .addComponent(jCheckBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -221,9 +221,11 @@ public class Appointment extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
 
@@ -233,7 +235,7 @@ public class Appointment extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -247,7 +249,7 @@ public class Appointment extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -266,7 +268,7 @@ public class Appointment extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -291,8 +293,8 @@ public class Appointment extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -305,7 +307,7 @@ public class Appointment extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
