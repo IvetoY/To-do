@@ -1360,7 +1360,7 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_bActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-        String a2= d1.getText();
+       String a2= d1.getText();
        a2+="/"+data2.getText();
        Appointment.setD(a2);
        click(); 
