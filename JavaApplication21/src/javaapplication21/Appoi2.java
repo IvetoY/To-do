@@ -4,18 +4,28 @@
  */
 package javaapplication21;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Iva
  */
 public class Appoi2 extends javax.swing.JFrame {
-
+File myFile= new File("Event.txt");
     /**
      * Creates new form Appoi2
      */
     public Appoi2() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        
     }
     
     /**
@@ -123,11 +133,16 @@ public class Appoi2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    try {
         getCurrentEvent();
+    } catch (FileNotFoundException ex) {
+        Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (UnsupportedEncodingException ex) {
+        Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
+    }
         dispose(); 
     }//GEN-LAST:event_jButton1ActionPerformed
-    public void getCurrentEvent(){
+    public void getCurrentEvent() throws FileNotFoundException, UnsupportedEncodingException {
         String hour;
         String minute;
         hour=(String) Hour.getSelectedItem();
@@ -137,10 +152,19 @@ public class Appoi2 extends javax.swing.JFrame {
         String fullEvent;
         fullEvent=hour+":"+minute+" "+event;
         Appointment.setNewEvent(fullEvent);
-        System.out.println(fullEvent);
-        
+        writeInFile(fullEvent);
     }
-    
+    public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
+        
+       PrintStream fileWriter = new PrintStream(myFile);
+       Scanner fileReader = new Scanner(myFile, "windows-1251");
+       while(fileReader.hasNextLine()){
+           fileWriter.println(fileReader.nextLine());
+       }
+        fileWriter.println(a);
+        fileWriter.close();
+       
+    }
     /**
      * @param args the command line arguments
      */
@@ -150,22 +174,7 @@ public class Appoi2 extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Appoi2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Appoi2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Appoi2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Appoi2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+       
         //</editor-fold>
 
         /* Create and display the form */
