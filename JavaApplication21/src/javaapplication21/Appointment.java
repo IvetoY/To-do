@@ -45,7 +45,7 @@ public class Appointment extends javax.swing.JFrame {
     public static void setNewEvent(String newEvent) {
         Appointment.newEvent = newEvent;
     }*/
-    
+    //PROMENLIVA ZA DATA
     public static String getD(){
         return d;
     }
@@ -56,19 +56,19 @@ public class Appointment extends javax.swing.JFrame {
         date.setText(getD());   
     }
     public void addEvent()throws FileNotFoundException{
-        Map<String, String> events = new HashMap<>();
+        Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
-            String[] split = x.split(" ");
+            String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
             events.put(split[0],split[1]);
         }
         file1_1.close();
         Map<String, String> eventsSorted = new TreeMap<String, String>(events);//drug nachin chasowete ni zapochwat s 
         for(Map.Entry<String,String> entry : events.entrySet()){
-            System.out.println("Sorted: "+entry.getKey());
+            System.out.println("Sorted: "+entry.getKey());//SORTIRANI SUBITIQ
             
         }
     }

@@ -31,10 +31,12 @@ public class Calendar extends javax.swing.JFrame {
         LinkedList<String> d = new LinkedList<>();
         //ot startowata stranica ot tam ste naprawim default tozi mesec
         //String today = date.getDayOfWeek().toString();
-        LocalDate someday = LocalDate.of(y,m,1);
+        LocalDate someday = LocalDate.of(y,m,1);//dneshna data
         String day = someday.getDayOfWeek().toString();
         //System.out.println(day);
-        String h1;
+        String h1; /*
+        proverqvame kolko dni ima mesetsa
+        */
         if(m==4 || m==6 || m==9 || m==11){
             for(int i=1;i<=37;i++){
                 if(i<=30){
@@ -58,6 +60,7 @@ public class Calendar extends javax.swing.JFrame {
             }
         }
         else{
+            //dali godinata e visokosna ili ne
             int r;
             if(y%4==0){
                 r = 29;
@@ -76,7 +79,7 @@ public class Calendar extends javax.swing.JFrame {
             }
         }
         zap(d,day);
-        
+        //vzima vsichki dni za nastoqshtiq mesetc na koito sme
         a.setText(d.get(0));//moche i linked list w opaska da go naprawim
         b.setText(d.get(1));
         c.setText(d.get(2));
@@ -118,6 +121,7 @@ public class Calendar extends javax.swing.JFrame {
         
         
     }
+    //
     public void zap(LinkedList d, String day){
         if("MONDAY".equals(day)){
             //jLabel1.setText("1");

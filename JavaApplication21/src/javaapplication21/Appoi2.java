@@ -167,6 +167,7 @@ File myFile= new File("Event.txt");
         for(int i=0;i<oldData.size();i++){
             fileWriter.println(oldData.get(i));
         }
+        ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
         fileWriter.println(a);
         file1_1.close();
         fileWriter.close();
