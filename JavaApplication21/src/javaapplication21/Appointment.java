@@ -66,9 +66,10 @@ public class Appointment extends javax.swing.JFrame {
             events.put(split[0],split[1]);
         }
         file1_1.close();
-        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//drug nachin chasowete ni zapochwat s 0
+        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//drug nachin chasowete ni zapochwat s 
         for(Map.Entry<String,String> entry : events.entrySet()){
             System.out.println("Sorted: "+entry.getKey());
+            
         }
     }
     
