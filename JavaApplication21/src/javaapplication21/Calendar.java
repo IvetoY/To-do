@@ -1221,6 +1221,7 @@ public class Calendar extends javax.swing.JFrame {
         a.show();
         dispose();
     }
+    //SLAGA BUTONITE DA MOGAT DA SE NATISKAT
    public void textButtonsTrue(){
         a.setEnabled(true);
         b.setEnabled(true);
@@ -1238,7 +1239,7 @@ public class Calendar extends javax.swing.JFrame {
         J.setEnabled(true);
         K.setEnabled(true);
     }
-   
+   //SLAGA GI DA NE MOGAT DA SE NATISKAT
     public void textButtonsFalse() {
         if(a.getText().equals(" ")){
             a.setEnabled(false);
@@ -1287,7 +1288,8 @@ public class Calendar extends javax.swing.JFrame {
         }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      textButtonsTrue();
+      //OTIVA NA PEDEN MESETS I PROVERQVA KOI BUTONI NI TRQBVAT
+        textButtonsTrue();
         String w1 = data2.getText();
         //int r = Integer.parseInt(w);
         String[] sp = w1.split("/");
@@ -1310,6 +1312,7 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       //OTIVA NA SLEDVASHT MESETS
         textButtonsTrue();
         String w1 = data2.getText();
         String[] sp = w1.split("/");
@@ -1328,7 +1331,12 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4VetoableChange
 
     private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
-        
+        //AKO BUTONA E NATISNAT VZIMA NEGOVATA DATA+MESETSA I GODINATA I GI PRASHTA V APPOINTMENT NA LEIBULA
+        /*CLICK() E FUNKTSIQ ZA ZATVARQNE NA CALENDAR
+        I OTVARQNE NA APPOINTMENT ZASHTOTTO 
+        Q IZPOLZVAME NA VSEKI BUTON
+        VSICHKI BUTONI SA S EDNAKUV KOD
+        */
        String a2= a.getText();
        a2+="/"+data2.getText();
        Appointment.setD(a2);
