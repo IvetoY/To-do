@@ -9,16 +9,19 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Iva
  */
 public class Appoi2 extends javax.swing.JFrame {
-File myFile= new File("Event.txt");
     /**
      * Creates new form Appoi2
      */
@@ -28,6 +31,25 @@ File myFile= new File("Event.txt");
         
         
     }
+    private int counter;
+    private static String data;
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public static String getData() {
+        return data;
+    }
+
+    public static void setData(String data) {
+        Appoi2.data = data;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,20 +163,59 @@ File myFile= new File("Event.txt");
     } catch (UnsupportedEncodingException ex) {
         Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
     }
-        dispose(); 
+        if(counter==0){
+            dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void getCurrentEvent() throws FileNotFoundException, UnsupportedEncodingException {
+        counter=0;
         String hour;
         String minute;
         hour=(String) Hour.getSelectedItem();
         minute=(String) Minute.getSelectedItem();
         String event;
         event = (String)Event.getText();
-        String fullEvent;
-        fullEvent=hour+":"+minute+" "+event;
-        //Appointment.setNewEvent(fullEvent);
-        writeInFile(fullEvent);
+        String regex = "[ ]+";
+        if(!(event.equals("") || event.matches(regex))){
+            String fullEvent;
+            String chas = hour+":"+minute;
+            fullEvent=chas+" "+event+","+getData();
+            Map<String, String> events = new HashMap<>();
+            events = addEvent();
+            if(!events.isEmpty()){
+                for(Map.Entry<String,String>entry : events.entrySet()){
+                    if(chas.equals(entry.getKey())){
+                        JOptionPane.showMessageDialog(null, "There is an existing event at this time.", " ", JOptionPane.WARNING_MESSAGE);
+                        counter++;
+                    }
+                }
+            }
+            if(counter==0){
+                writeInFile(fullEvent);
+            }
+        }
+        else{
+            counter++;
+            JOptionPane.showMessageDialog(null, "No event added.", " ", JOptionPane.WARNING_MESSAGE);
+            //da slozim butoni za zatwarqne ili iskam da poprawq events(pri+ dali posledniq buton e prazen ili ne
+        }
         //da naprawim prowerka ako weche ima w tokkowa chasa nasto
+    }
+    public Map addEvent()throws FileNotFoundException{
+        Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
+        File file1 = new File("data.txt");
+        Scanner file1_1 = new Scanner(file1);
+        ArrayList<Object> oldData = new ArrayList<>();
+        while(file1_1.hasNextLine()){
+            String x = file1_1.nextLine();
+            if(!x.equals("Nachalo")){
+                String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                System.out.println("tyk");
+                events.put(split[0],split[1]);
+            }
+        }
+        file1_1.close();
+        return events;
     }
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
         File file1 = new File("data.txt");

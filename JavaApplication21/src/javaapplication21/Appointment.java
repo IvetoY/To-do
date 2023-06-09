@@ -53,24 +53,29 @@ public class Appointment extends javax.swing.JFrame {
         Appointment.d=d;
     }
     public void labelDate(){
-        date.setText(getD());   
+        date.setText(getD());
+        String data1 = getD();
+        Appoi2.setData(data1);
     }
-    public void addEvent()throws FileNotFoundException{
+    public Map addEvent()throws FileNotFoundException{
         Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
-            String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-            events.put(split[0],split[1]);
+            if(!x.equals("Nachalo")){
+                String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                events.put(split[0],split[1]);
+            }
         }
         file1_1.close();
-        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//drug nachin chasowete ni zapochwat s 
-        for(Map.Entry<String,String> entry : events.entrySet()){
-            System.out.println("Sorted: "+entry.getKey());//SORTIRANI SUBITIQ
+        Map<String, String> eventsSorted = new TreeMap<String, String>(events);
+        /*for(Map.Entry<String,String> entry : eventsSorted.entrySet()){
+            System.out.println("Sorted: "+entry.getKey()+entry.getValue());//SORTIRANI SUBITIQ
             
-        }
+        }*/
+        return eventsSorted;
     }
     
     /**
@@ -104,7 +109,6 @@ public class Appointment extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(810, 600));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(810, 603));
 
