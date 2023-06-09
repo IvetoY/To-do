@@ -4,6 +4,17 @@
  */
 package javaapplication21;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Iva
@@ -13,15 +24,19 @@ public class Appointment extends javax.swing.JFrame {
     /**
      * Creates new form Appointment
      */
-    public Appointment() {
+    public Appointment(){
         initComponents();
           setLocationRelativeTo(null);
           labelDate();
-          r();
           setResizable(false);
+          try {
+                addEvent();
+          } catch (FileNotFoundException ex) {
+            Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public static String d;
-    public static String newEvent;
+    /*public static String newEvent;
 
     public static String getNewEvent() {
         return newEvent;
@@ -29,11 +44,7 @@ public class Appointment extends javax.swing.JFrame {
 
     public static void setNewEvent(String newEvent) {
         Appointment.newEvent = newEvent;
-    }
-    
-    public void r(){
-        System.out.println(newEvent);
-    }
+    }*/
     
     public static String getD(){
         return d;
@@ -43,6 +54,22 @@ public class Appointment extends javax.swing.JFrame {
     }
     public void labelDate(){
         date.setText(getD());   
+    }
+    public void addEvent()throws FileNotFoundException{
+        Map<String, String> events = new HashMap<>();
+        File file1 = new File("data.txt");
+        Scanner file1_1 = new Scanner(file1);
+        ArrayList<Object> oldData = new ArrayList<>();
+        while(file1_1.hasNextLine()){
+            String x = file1_1.nextLine();
+            String[] split = x.split(" ");
+            events.put(split[0],split[1]);
+        }
+        file1_1.close();
+        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//drug nachin chasowete ni zapochwat s 0
+        for(Map.Entry<String,String> entry : events.entrySet()){
+            System.out.println("Sorted: "+entry.getKey());
+        }
     }
     
     /**
@@ -59,16 +86,16 @@ public class Appointment extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
+        Event1 = new javax.swing.JCheckBox();
+        Event2 = new javax.swing.JCheckBox();
+        Event3 = new javax.swing.JCheckBox();
+        Event4 = new javax.swing.JCheckBox();
+        Event5 = new javax.swing.JCheckBox();
+        Event6 = new javax.swing.JCheckBox();
+        Event7 = new javax.swing.JCheckBox();
+        Event8 = new javax.swing.JCheckBox();
+        Event9 = new javax.swing.JCheckBox();
+        Event10 = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
@@ -106,65 +133,55 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("yhuga");
-        jCheckBox1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox1.setBorderPainted(true);
-        jCheckBox1.setContentAreaFilled(false);
+        Event1.setBackground(new java.awt.Color(255, 255, 255));
+        Event1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event1.setBorderPainted(true);
+        Event1.setContentAreaFilled(false);
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("yhuga");
-        jCheckBox2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox2.setBorderPainted(true);
-        jCheckBox2.setContentAreaFilled(false);
+        Event2.setBackground(new java.awt.Color(255, 255, 255));
+        Event2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event2.setBorderPainted(true);
+        Event2.setContentAreaFilled(false);
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setText("yhuga");
-        jCheckBox3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox3.setBorderPainted(true);
-        jCheckBox3.setContentAreaFilled(false);
+        Event3.setBackground(new java.awt.Color(255, 255, 255));
+        Event3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event3.setBorderPainted(true);
+        Event3.setContentAreaFilled(false);
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setText("yhuga");
-        jCheckBox4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox4.setBorderPainted(true);
-        jCheckBox4.setContentAreaFilled(false);
+        Event4.setBackground(new java.awt.Color(255, 255, 255));
+        Event4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event4.setBorderPainted(true);
+        Event4.setContentAreaFilled(false);
 
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setText("yhuga");
-        jCheckBox5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox5.setBorderPainted(true);
-        jCheckBox5.setContentAreaFilled(false);
+        Event5.setBackground(new java.awt.Color(255, 255, 255));
+        Event5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event5.setBorderPainted(true);
+        Event5.setContentAreaFilled(false);
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setText("yhuga");
-        jCheckBox6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox6.setBorderPainted(true);
-        jCheckBox6.setContentAreaFilled(false);
+        Event6.setBackground(new java.awt.Color(255, 255, 255));
+        Event6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event6.setBorderPainted(true);
+        Event6.setContentAreaFilled(false);
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setText("yhuga");
-        jCheckBox7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox7.setBorderPainted(true);
-        jCheckBox7.setContentAreaFilled(false);
+        Event7.setBackground(new java.awt.Color(255, 255, 255));
+        Event7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event7.setBorderPainted(true);
+        Event7.setContentAreaFilled(false);
 
-        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setText("yhuga");
-        jCheckBox8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox8.setBorderPainted(true);
-        jCheckBox8.setContentAreaFilled(false);
+        Event8.setBackground(new java.awt.Color(255, 255, 255));
+        Event8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event8.setBorderPainted(true);
+        Event8.setContentAreaFilled(false);
 
-        jCheckBox9.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox9.setText("yhuga");
-        jCheckBox9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox9.setBorderPainted(true);
-        jCheckBox9.setContentAreaFilled(false);
+        Event9.setBackground(new java.awt.Color(255, 255, 255));
+        Event9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event9.setBorderPainted(true);
+        Event9.setContentAreaFilled(false);
 
-        jCheckBox10.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox10.setText("yhuga");
-        jCheckBox10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCheckBox10.setBorderPainted(true);
-        jCheckBox10.setContentAreaFilled(false);
+        Event10.setBackground(new java.awt.Color(255, 255, 255));
+        Event10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Event10.setBorderPainted(true);
+        Event10.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -172,40 +189,40 @@ public class Appointment extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Event1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event2, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event3, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event4, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event5, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event6, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event7, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event8, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event9, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Event10, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Event10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -361,21 +378,21 @@ public class Appointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox Event1;
+    private javax.swing.JCheckBox Event10;
+    private javax.swing.JCheckBox Event2;
+    private javax.swing.JCheckBox Event3;
+    private javax.swing.JCheckBox Event4;
+    private javax.swing.JCheckBox Event5;
+    private javax.swing.JCheckBox Event6;
+    private javax.swing.JCheckBox Event7;
+    private javax.swing.JCheckBox Event8;
+    private javax.swing.JCheckBox Event9;
     private javax.swing.JLabel date;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

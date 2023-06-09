@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -151,17 +152,23 @@ File myFile= new File("Event.txt");
         event = (String)Event.getText();
         String fullEvent;
         fullEvent=hour+":"+minute+" "+event;
-        Appointment.setNewEvent(fullEvent);
+        //Appointment.setNewEvent(fullEvent);
         writeInFile(fullEvent);
+        //da naprawim prowerka ako weche ima w tokkowa chasa nasto
     }
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
-        
-       PrintStream fileWriter = new PrintStream(myFile);
-       Scanner fileReader = new Scanner(myFile, "windows-1251");
-       while(fileReader.hasNextLine()){
-           fileWriter.println(fileReader.nextLine());
-       }
+        File file1 = new File("data.txt");
+        Scanner file1_1 = new Scanner(file1);
+        ArrayList<Object> oldData = new ArrayList<>();
+        while(file1_1.hasNextLine()){
+            oldData.add(file1_1.nextLine());
+        }
+        PrintStream fileWriter = new PrintStream("data.txt","windows-1251");
+        for(int i=0;i<oldData.size();i++){
+            fileWriter.println(oldData.get(i));
+        }
         fileWriter.println(a);
+        file1_1.close();
         fileWriter.close();
        
     }
