@@ -37,6 +37,8 @@ public class Appoi2 extends javax.swing.JFrame {
     }
     private int counter;
     private static String data;
+    private Map eventList;
+    public static Map<String, String> events = new HashMap<>();
 
     public int getCounter() {
         return counter;
@@ -53,6 +55,18 @@ public class Appoi2 extends javax.swing.JFrame {
     public static void setData(String data) {
         Appoi2.data = data;
     }
+
+    public Map getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(Map eventList) {
+        this.eventList = eventList;
+    }
+     
+    
+    
+    
     
     
     /**
@@ -184,40 +198,38 @@ public class Appoi2 extends javax.swing.JFrame {
             String fullEvent;
             String chas = hour+":"+minute;
             fullEvent=getData()+" " +chas+" "+event;
+            
             Map<String, String> events = new HashMap<>();
             events = addEvent();
             if(!events.isEmpty()){
             for(Map.Entry<String,String>entry : events.entrySet()){
-                    String []split_value = (entry.getValue()).split(",");
-                    System.out.println(split_value[1]);
+                   String []split_value = (entry.getValue()).split(",");
+                    
                    if(split_value[1].equals(getData())){
+                       //ima problem s dobavqneto na neshta po edno isushto vreme
+                       //pri vsqko startirani ne chete starite neshta i pozvolqva da vuveda neshto dva puti
                     if(chas.equals(entry.getKey()) ){
-                        JOptionPane.showMessageDialog(null, "There is an existing event at this time.", " ", JOptionPane.WARNING_MESSAGE);
                         counter++;
-                    }
-                       System.out.println("for");  
-               }
+                       JOptionPane.showMessageDialog(null, "Има съществуващо събитие по това време.","", JOptionPane.WARNING_MESSAGE);
+                     }
                 }
-
-               
-            } 
-                        if(counter==0){
-                addEvent_data(getData());
-                System.out.println("counter");
-                writeInFile(fullEvent);
-               
             }
-        }
+             if(counter==0){
+                addEvent_data(getData());
+                writeInFile(fullEvent);
+            }
+         } 
+         }
         else{
             counter++;
-            JOptionPane.showMessageDialog(null, "No event added.", " ", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Събитието не е добавено.", " ", JOptionPane.WARNING_MESSAGE);
             //da slozim butoni za zatwarqne ili iskam da poprawq events(pri+ dali posledniq buton e prazen ili ne
         }
-        //da naprawim prowerka ako weche ima w tokkowa chasa nasto
+        //da naprawim prowerka ako weche ima w tokkowa chasanasto
     }
     
     public Map addEvent()throws FileNotFoundException{
-        Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
+         //TUK SHTE PAZIM SORIRANI SUBITIQ tova otiva v
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
@@ -228,6 +240,8 @@ public class Appoi2 extends javax.swing.JFrame {
                 String k=split[2]+","+split[0];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
                 events.put(split[1],k);
             }
+            //ot uka idva problema
+            //ako poslednata zapisana data e sushtata kato segashnata ne dava da se povtarqt, no ako e nqkoq ot po gornite pozvolqva
         }
         file1_1.close();
         return events;
@@ -236,18 +250,19 @@ public class Appoi2 extends javax.swing.JFrame {
      Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
-          System.out.println("kjewd");
+          
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
-            System.out.println("sofi");
             
                 //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
                 data_set.add(x);
         }
         data_set.add(a);
         
-        PrintStream fileWriter = new PrintStream("Event_new.txt","windows-1251");
-        fileWriter.println(data_set);
+        PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
+        for(String set_elements: data_set){
+            fileWriter.println(set_elements);
+        }
         file1_1.close();
         fileWriter.close();
         
@@ -260,14 +275,13 @@ public class Appoi2 extends javax.swing.JFrame {
         while(file1_1.hasNextLine()){
             oldData.add(file1_1.nextLine());
         }
-        PrintStream fileWriter = new PrintStream("data.txt","windows-1251");
+        PrintStream fileWriter = new PrintStream("data.txt","UTF-8");
+        
         for(int i=0;i<oldData.size();i++){
             fileWriter.println(oldData.get(i));
         }
         ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
-        fileWriter.println(a+"az");
-        System.out.println(a);
-        
+        fileWriter.println(a);
         fileWriter.close();
        
     }
