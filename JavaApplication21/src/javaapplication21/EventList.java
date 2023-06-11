@@ -25,7 +25,7 @@ public class EventList {
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
-                String[] split = x.split(" ");
+                String[] split = x.split(";");
                 String k=split[2]+","+split[0];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
                 events.put(split[1],k);
             }

@@ -197,27 +197,29 @@ public class Appoi2 extends javax.swing.JFrame {
         if(!(event.equals("") || event.matches(regex))){
             String fullEvent;
             String chas = hour+":"+minute;
-            fullEvent=getData()+" " +chas+" "+event;
-            
+            fullEvent=getData()+";" +chas+";"+event;
             Map<String, String> events = new HashMap<>();
             events = addEvent();
             if(!events.isEmpty()){
+            
             for(Map.Entry<String,String>entry : events.entrySet()){
-                   String []split_value = (entry.getValue()).split(",");
-                    
-                   if(split_value[1].equals(getData())){
+                String []split_value = (entry.getValue()).split(",");
+                   if(split_value[0].equals(getData())){
                        //ima problem s dobavqneto na neshta po edno isushto vreme
                        //pri vsqko startirani ne chete starite neshta i pozvolqva da vuveda neshto dva puti
-                    if(chas.equals(entry.getKey()) ){
-                        counter++;
+                    if(chas.equals(split_value[1])){
+                       counter++;
                        JOptionPane.showMessageDialog(null, "Има съществуващо събитие по това време.","", JOptionPane.WARNING_MESSAGE);
-                     }
+                    }
+                }
+                if(counter!=0){
+                    break;  
                 }
             }
-             if(counter==0){
+            }
+            if(counter==0){
                 addEvent_data(getData());
                 writeInFile(fullEvent);
-            }
          } 
          }
         else{
@@ -236,9 +238,9 @@ public class Appoi2 extends javax.swing.JFrame {
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
-                String[] split = x.split(" ");
-                String k=split[2]+","+split[0];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                events.put(split[1],k);
+                String[] split = x.split(";");
+                String k=split[0]+","+split[1];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                events.put(split[2],k);
             }
             //ot uka idva problema
             //ako poslednata zapisana data e sushtata kato segashnata ne dava da se povtarqt, no ako e nqkoq ot po gornite pozvolqva

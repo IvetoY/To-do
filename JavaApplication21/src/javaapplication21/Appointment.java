@@ -65,12 +65,14 @@ public class Appointment extends javax.swing.JFrame {
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
-                String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                String[] split = x.split(";"); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
                 events.put(split[1],split[2]);
             }
         }
         file1_1.close();
-        Map<String, String> eventsSorted = new TreeMap<String, String>(events);
+        
+        ///s!!!!!!!!!!!!!
+        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//tuk trqbwa da se znae che sa ot edna data map w map?
         /*for(Map.Entry<String,String> entry : eventsSorted.entrySet()){
             System.out.println("Sorted: "+entry.getKey()+entry.getValue());//SORTIRANI SUBITIQ
             
