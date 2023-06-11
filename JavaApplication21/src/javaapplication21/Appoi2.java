@@ -9,9 +9,13 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -179,19 +183,29 @@ public class Appoi2 extends javax.swing.JFrame {
         if(!(event.equals("") || event.matches(regex))){
             String fullEvent;
             String chas = hour+":"+minute;
-            fullEvent=chas+" "+event+","+getData();
+            fullEvent=getData()+" " +chas+" "+event;
             Map<String, String> events = new HashMap<>();
             events = addEvent();
             if(!events.isEmpty()){
-                for(Map.Entry<String,String>entry : events.entrySet()){
-                    if(chas.equals(entry.getKey())){
+            for(Map.Entry<String,String>entry : events.entrySet()){
+                    String []split_value = (entry.getValue()).split(",");
+                    System.out.println(split_value[1]);
+                   if(split_value[1].equals(getData())){
+                    if(chas.equals(entry.getKey()) ){
                         JOptionPane.showMessageDialog(null, "There is an existing event at this time.", " ", JOptionPane.WARNING_MESSAGE);
                         counter++;
                     }
+                       System.out.println("for");  
+               }
                 }
-            }
-            if(counter==0){
+
+               
+            } 
+                        if(counter==0){
+               // addEvent_data(getData());
+                System.out.println("counter");
                 writeInFile(fullEvent);
+               
             }
         }
         else{
@@ -201,6 +215,7 @@ public class Appoi2 extends javax.swing.JFrame {
         }
         //da naprawim prowerka ako weche ima w tokkowa chasa nasto
     }
+    
     public Map addEvent()throws FileNotFoundException{
         Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("data.txt");
@@ -209,14 +224,35 @@ public class Appoi2 extends javax.swing.JFrame {
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
-                String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                System.out.println("tyk");
-                events.put(split[0],split[1]);
+                String[] split = x.split(" ");
+                String k=split[2]+","+split[0];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                events.put(split[1],k);
             }
         }
         file1_1.close();
         return events;
     }
+      public void  addEvent_data(String a)throws FileNotFoundException, UnsupportedEncodingException{
+     Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
+        File file1 = new File("Event_new.txt");
+        Scanner file1_1 = new Scanner(file1);
+          System.out.println("kjewd");
+        while(file1_1.hasNextLine()){
+            String x = file1_1.nextLine();
+            System.out.println("sofi");
+            
+                //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
+                data_set.add(x);
+        }
+        data_set.add(a);
+        
+         PrintStream fileWriter = new PrintStream("Event_new.txt","windows-1251");
+        fileWriter.println(data_set);
+        file1_1.close();
+        fileWriter.close();
+        
+    }
+    
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
@@ -229,8 +265,9 @@ public class Appoi2 extends javax.swing.JFrame {
             fileWriter.println(oldData.get(i));
         }
         ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
-        fileWriter.println(a);
-        file1_1.close();
+        fileWriter.println(a+"az");
+        System.out.println(a);
+        
         fileWriter.close();
        
     }

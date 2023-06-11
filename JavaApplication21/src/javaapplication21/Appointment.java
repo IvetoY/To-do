@@ -66,7 +66,7 @@ public class Appointment extends javax.swing.JFrame {
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
                 String[] split = x.split(" "); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                events.put(split[0],split[1]);
+                events.put(split[1],split[2]);
             }
         }
         file1_1.close();
@@ -243,13 +243,18 @@ public class Appointment extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -346,6 +351,10 @@ public class Appointment extends javax.swing.JFrame {
         Appoi2 a = new Appoi2();
         a.show();
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
