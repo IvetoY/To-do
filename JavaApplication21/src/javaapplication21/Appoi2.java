@@ -202,7 +202,7 @@ public class Appoi2 extends javax.swing.JFrame {
                
             } 
                         if(counter==0){
-               // addEvent_data(getData());
+                addEvent_data(getData());
                 System.out.println("counter");
                 writeInFile(fullEvent);
                
@@ -246,7 +246,7 @@ public class Appoi2 extends javax.swing.JFrame {
         }
         data_set.add(a);
         
-         PrintStream fileWriter = new PrintStream("Event_new.txt","windows-1251");
+        PrintStream fileWriter = new PrintStream("Event_new.txt","windows-1251");
         fileWriter.println(data_set);
         file1_1.close();
         fileWriter.close();
