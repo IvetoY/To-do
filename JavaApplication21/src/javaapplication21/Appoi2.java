@@ -201,7 +201,8 @@ public class Appoi2 extends javax.swing.JFrame {
         if(!(event.equals("") || event.matches(regex))){
             String fullEvent;
             String chas = hour+":"+minute;
-            fullEvent=getData()+";" +chas+";"+event;
+            fullEvent=getData()+";"+chas+";"+event;//00/00/00;00:00;jej
+            System.out.println(fullEvent);
             Map<String, String> events = new HashMap<>();
             events = addEvent();
             if(!events.isEmpty()){
@@ -252,35 +253,21 @@ public class Appoi2 extends javax.swing.JFrame {
         file1_1.close();
         return events;
     }
-      public void  addEventData(String a)throws FileNotFoundException, UnsupportedEncodingException{
+      public void addEventData(String a)throws FileNotFoundException, UnsupportedEncodingException{
         Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
-                String[] split_date = x.split("/");
-                System.out.println(x);
-                x = split_date[2]+"/"+split_date[1]+"/"+split_date[0];
-                System.out.println("2"+split_date[2]);
-                //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
+               //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
                 data_set.add(x);
             }
         }
-        String x1;
-          System.out.println("az");
-        String[] split_date1 = a.split("/");
-        x1 = split_date1[2]+"/"+split_date1[1]+"/"+split_date1[0];
-        data_set.add(x1);
-        Set <String> new_set = new TreeSet<>(data_set);
+        data_set.add(a);
         PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
-        for(String set_elements: new_set){
-            String[] split_date2 = set_elements.split("/");
-            String y = split_date2[2]+"/"+split_date2[1]+"/"+split_date2[0];
-            System.out.println("0"+split_date2[0]);
-            System.out.println("1"+split_date2[1]);
-            fileWriter.println(y);
-            
+        for(String set_elements: data_set){
+            fileWriter.println(set_elements);
         }
         file1_1.close();
         fileWriter.close();
@@ -296,7 +283,7 @@ public class Appoi2 extends javax.swing.JFrame {
         }
         PrintStream fileWriter = new PrintStream("data.txt","UTF-8");
         oldData.add(a);
-        Collections.sort(oldData);
+        //Collections.sort(oldData);
         for(int i=0;i<oldData.size();i++){
             fileWriter.println(oldData.get(i));
         }
