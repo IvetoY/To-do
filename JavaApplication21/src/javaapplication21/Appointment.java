@@ -6,7 +6,6 @@ package javaapplication21;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +13,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -25,17 +25,21 @@ public class Appointment extends javax.swing.JFrame {
     /**
      * Creates new form Appointment
      */
-    public Appointment() throws FileNotFoundException{
+    public Appointment(){
         initComponents();
           setLocationRelativeTo(null);
           labelDate();
           setResizable(false);
- 
-          /*try {
-                addEvent();
-          } catch (FileNotFoundException ex) {
+        try {
+            textCheckeBox();
+            /*try {
+            addEvent();
+            } catch (FileNotFoundException ex) {
             Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            }*/
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public static String d;
     /*public static String newEvent;
@@ -370,7 +374,7 @@ public class Appointment extends javax.swing.JFrame {
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-public void textCheckBox() throws FileNotFoundException{
+public void textCheckeBox() throws FileNotFoundException{
    int br=0;
    File file = new File ("data.txt");
    Scanner fileReader = new Scanner (file);
@@ -384,7 +388,7 @@ public void textCheckBox() throws FileNotFoundException{
            br++;
        }
    }
-   fileReader.close();
+   
    Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);
    ArrayList<String> sortInfo = new ArrayList<>();
    for(Map.Entry<String,String> entry : checkBoxSorted.entrySet()){
@@ -393,21 +397,30 @@ public void textCheckBox() throws FileNotFoundException{
    for(int i = br+1; i<=10;i++){
      sortInfo.add(" ");
    }
-  Event1.setText(sortInfo.get(0));
+   Event1.setText(sortInfo.get(0));
   Event2.setText(sortInfo.get(1));
   Event3.setText(sortInfo.get(2));
   Event4.setText(sortInfo.get(3));
   Event5.setText(sortInfo.get(4));
   Event6.setText(sortInfo.get(5));
- Event7.setText(sortInfo.get(6));
- Event8.setText(sortInfo.get(7));
- Event9.setText(sortInfo.get(8));
- Event10.setText(sortInfo.get(9));
-}
+Event7.setText(sortInfo.get(6));
+Event8.setText(sortInfo.get(7));
+Event9.setText(sortInfo.get(8));
+Event10.setText(sortInfo.get(9));
+  
 
+}
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+       if(!(Event10.getText().equals(" "))){
+           JOptionPane.showMessageDialog(null, "Графика е запълнен."," ", JOptionPane.WARNING_MESSAGE);
+           
+       }
+       else{
         Appoi2 a = new Appoi2();
         a.show();
+        dispose();
+       }
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -448,9 +461,7 @@ public void textCheckBox() throws FileNotFoundException{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
-                   new Appointment().setVisible(true);
-                
+                new Appointment().setVisible(true);
             }
         });
     }

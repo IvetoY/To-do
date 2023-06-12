@@ -188,7 +188,10 @@ public class Appoi2 extends javax.swing.JFrame {
         Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
     }
         if(counter==0){
+            Appointment a= new Appointment();
+            a.show();
             dispose();
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void getCurrentEvent() throws FileNotFoundException, UnsupportedEncodingException {
