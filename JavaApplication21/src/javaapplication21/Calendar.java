@@ -117,7 +117,11 @@ public class Calendar extends javax.swing.JFrame {
         I.setText(d.get(34));
         J.setText(d.get(35));
         K.setText(d.get(36));
-        data2.setText(m+"/"+y);
+        String m1=m+"";
+        if(m>=1 && m<10){
+            m1 = "0"+m;
+        }
+        data2.setText(m1+"/"+y);
         
         
     }
@@ -1329,7 +1333,15 @@ public class Calendar extends javax.swing.JFrame {
     private void jLabel4VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel4VetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4VetoableChange
-
+    public String zero(String data1){
+        String[] data2 = data1.split("/");
+        System.out.println(Integer.parseInt(data2[0]));
+        if(Integer.parseInt(data2[0])>=1 && Integer.parseInt(data2[0])<=9){
+            data2[0] = "0"+data2[0];
+        }
+        data1 = data2[0]+"/"+data2[1]+"/"+data2[2];
+        return data1;
+    }
     private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
         //AKO BUTONA E NATISNAT VZIMA NEGOVATA DATA+MESETSA I GODINATA I GI PRASHTA V APPOINTMENT NA LEIBULA
         /*CLICK() E FUNKTSIQ ZA ZATVARQNE NA CALENDAR
@@ -1339,6 +1351,7 @@ public class Calendar extends javax.swing.JFrame {
         */
        String a2= a.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();  
     }//GEN-LAST:event_aActionPerformed
@@ -1346,13 +1359,15 @@ public class Calendar extends javax.swing.JFrame {
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
         String a2= E.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_EActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
-        String a2= c.getText();
+       String a2= c.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_cActionPerformed
@@ -1367,6 +1382,7 @@ public class Calendar extends javax.swing.JFrame {
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
        String a2= b.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_bActionPerformed
@@ -1374,6 +1390,7 @@ public class Calendar extends javax.swing.JFrame {
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
        String a2= d1.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_d1ActionPerformed
@@ -1388,6 +1405,7 @@ public class Calendar extends javax.swing.JFrame {
     private void eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eActionPerformed
         String a2= e.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); // TODO add your handling code here:
     }//GEN-LAST:event_eActionPerformed
@@ -1395,55 +1413,63 @@ public class Calendar extends javax.swing.JFrame {
     private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
        String a2= f.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();  // TODO add your handling code here:
     }//GEN-LAST:event_fActionPerformed
 
     private void gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gActionPerformed
-String a2= g.getText();
+       String a2= g.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_gActionPerformed
 
     private void hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hActionPerformed
-String a2= h.getText();
+       String a2= h.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_hActionPerformed
 
     private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
-String a2= i1.getText();
+       String a2= i1.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_i1ActionPerformed
 
     private void jActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jActionPerformed
-String a2= j.getText();
+       String a2= j.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_jActionPerformed
 
     private void kActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kActionPerformed
-String a2= k.getText();
+       String a2= k.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_kActionPerformed
 
     private void lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lActionPerformed
-      String a2= I.getText();
+       String a2= I.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();   // TODO add your handling code here:
     }//GEN-LAST:event_lActionPerformed
 
     private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
-String a2= m1.getText();
+       String a2= m1.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_m1ActionPerformed
@@ -1451,6 +1477,7 @@ String a2= m1.getText();
     private void nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nActionPerformed
        String a2= n.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_nActionPerformed
@@ -1459,6 +1486,7 @@ String a2= m1.getText();
         // TODO add your handling code here:
         String a2= o.getText();
        a2+="/"+data2.getText();
+       a2 = zero(a2);
        Appointment.setD(a2);
        click(); 
     }//GEN-LAST:event_oActionPerformed

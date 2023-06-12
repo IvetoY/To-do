@@ -4,11 +4,14 @@
  */
 package javaapplication21;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -203,7 +206,7 @@ public class Appoi2 extends javax.swing.JFrame {
             if(!events.isEmpty()){
             
             for(Map.Entry<String,String>entry : events.entrySet()){
-                String []split_value = (entry.getValue()).split(",");
+                String []split_value = (entry.getKey()).split(",");
                    if(split_value[0].equals(getData())){
                        //ima problem s dobavqneto na neshta po edno isushto vreme
                        //pri vsqko startirani ne chete starite neshta i pozvolqva da vuveda neshto dva puti
@@ -240,7 +243,7 @@ public class Appoi2 extends javax.swing.JFrame {
             if(!x.equals("Nachalo")){
                 String[] split = x.split(";");
                 String k=split[0]+","+split[1];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                events.put(split[2],k);
+                events.put(k,split[2]);
             }
             //ot uka idva problema
             //ako poslednata zapisana data e sushtata kato segashnata ne dava da se povtarqt, no ako e nqkoq ot po gornite pozvolqva
@@ -273,17 +276,18 @@ public class Appoi2 extends javax.swing.JFrame {
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
-        ArrayList<Object> oldData = new ArrayList<>();
+        LinkedList<String> oldData = new LinkedList<>();
         while(file1_1.hasNextLine()){
             oldData.add(file1_1.nextLine());
         }
         PrintStream fileWriter = new PrintStream("data.txt","UTF-8");
-        
+        oldData.add(a);
+        Collections.sort(oldData);
         for(int i=0;i<oldData.size();i++){
             fileWriter.println(oldData.get(i));
         }
+        
         ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
-        fileWriter.println(a);
         fileWriter.close();
        
     }

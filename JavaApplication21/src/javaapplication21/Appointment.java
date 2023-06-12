@@ -29,11 +29,11 @@ public class Appointment extends javax.swing.JFrame {
           setLocationRelativeTo(null);
           labelDate();
           setResizable(false);
-          try {
+          /*try {
                 addEvent();
           } catch (FileNotFoundException ex) {
             Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     public static String d;
     /*public static String newEvent;
@@ -57,7 +57,7 @@ public class Appointment extends javax.swing.JFrame {
         String data1 = getD();
         Appoi2.setData(data1);
     }
-    public Map addEvent()throws FileNotFoundException{
+    /*public Map addEvent()throws FileNotFoundException{
         Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
@@ -76,9 +76,9 @@ public class Appointment extends javax.swing.JFrame {
         /*for(Map.Entry<String,String> entry : eventsSorted.entrySet()){
             System.out.println("Sorted: "+entry.getKey()+entry.getValue());//SORTIRANI SUBITIQ
             
-        }*/
+        }
         return eventsSorted;
-    }
+    }*/
     
     /**
      * This method is called from within the constructor to initialize the form.
