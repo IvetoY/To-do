@@ -4,6 +4,17 @@
  */
 package javaapplication21;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -14,11 +25,12 @@ public class Appointment extends javax.swing.JFrame {
     /**
      * Creates new form Appointment
      */
-    public Appointment(){
+    public Appointment() throws FileNotFoundException{
         initComponents();
           setLocationRelativeTo(null);
           labelDate();
           setResizable(false);
+ 
           /*try {
                 addEvent();
           } catch (FileNotFoundException ex) {
@@ -101,10 +113,15 @@ public class Appointment extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 116, 123));
 
+        jPanel1.setBackground(new java.awt.Color(0, 116, 123));
         jPanel1.setPreferredSize(new java.awt.Dimension(810, 603));
 
+        jPanel2.setBackground(new java.awt.Color(0, 116, 123));
+
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Избраната дата е ");
 
         date.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -130,10 +147,17 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(0, 116, 123));
+
         Event1.setBackground(new java.awt.Color(255, 255, 255));
         Event1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event1.setBorderPainted(true);
         Event1.setContentAreaFilled(false);
+        Event1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Event1ActionPerformed(evt);
+            }
+        });
 
         Event2.setBackground(new java.awt.Color(255, 255, 255));
         Event2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -223,9 +247,12 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel5.setBackground(new java.awt.Color(0, 116, 123));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jButton12.setBackground(new java.awt.Color(21, 235, 232));
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setText("+");
         jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton12.setContentAreaFilled(false);
@@ -235,10 +262,14 @@ public class Appointment extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setBackground(new java.awt.Color(21, 235, 232));
+        jButton13.setForeground(new java.awt.Color(0, 0, 0));
         jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
+        jButton14.setBackground(new java.awt.Color(21, 235, 232));
+        jButton14.setForeground(new java.awt.Color(0, 0, 0));
         jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
@@ -273,7 +304,9 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton3.setBackground(new java.awt.Color(21, 235, 232));
         jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("<-- ");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -337,9 +370,42 @@ public class Appointment extends javax.swing.JFrame {
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+public void textCheckBox() throws FileNotFoundException{
+   int br=0;
+   File file = new File ("data.txt");
+   Scanner fileReader = new Scanner (file);
+   HashMap<String,String> checkBox = new HashMap<>();
+   while(fileReader.hasNextLine()){
+       
+       String x=fileReader.nextLine();
+       String []x_split=x.split(";");
+       if(x_split[0].equals(getD())){
+           checkBox.put(x_split[1], x_split[2]);
+           br++;
+       }
+   }
+   fileReader.close();
+   Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);
+   ArrayList<String> sortInfo = new ArrayList<>();
+   for(Map.Entry<String,String> entry : checkBoxSorted.entrySet()){
+       sortInfo.add(entry.getKey()+" "+entry.getValue());
+     }
+   for(int i = br+1; i<=10;i++){
+     sortInfo.add(" ");
+   }
+  Event1.setText(sortInfo.get(0));
+  Event2.setText(sortInfo.get(1));
+  Event3.setText(sortInfo.get(2));
+  Event4.setText(sortInfo.get(3));
+  Event5.setText(sortInfo.get(4));
+  Event6.setText(sortInfo.get(5));
+ Event7.setText(sortInfo.get(6));
+ Event8.setText(sortInfo.get(7));
+ Event9.setText(sortInfo.get(8));
+ Event10.setText(sortInfo.get(9));
+}
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
         Appoi2 a = new Appoi2();
         a.show();
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -347,6 +413,10 @@ public class Appointment extends javax.swing.JFrame {
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void Event1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Event1ActionPerformed
+      
+    }//GEN-LAST:event_Event1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,7 +448,9 @@ public class Appointment extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Appointment().setVisible(true);
+               
+                   new Appointment().setVisible(true);
+                
             }
         });
     }
