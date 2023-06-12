@@ -202,7 +202,7 @@ public class Appoi2 extends javax.swing.JFrame {
             String fullEvent;
             String chas = hour+":"+minute;
             fullEvent=getData()+";"+chas+";"+event;//00/00/00;00:00;jej
-            System.out.println(fullEvent);
+            //System.out.println(fullEvent);
             Map<String, String> events = new HashMap<>();
             events = addEvent();
             if(!events.isEmpty()){
@@ -254,20 +254,28 @@ public class Appoi2 extends javax.swing.JFrame {
         return events;
     }
       public void addEventData(String a)throws FileNotFoundException, UnsupportedEncodingException{
-        Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
+        Set<String> data_set = new TreeSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
                //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
-                data_set.add(x);
+                //data_set.add(x);
+                String[] h = x.split("/");
+                String j = h[2]+"/"+h[1]+"/"+h[0];
+                data_set.add(j);
             }
         }
-        data_set.add(a);
+        String[] k = a.split("/");
+        String y = k[2]+"/"+k[1]+"/"+k[0];
+        data_set.add(y);
         PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
+        fileWriter.println("Nachalo");
         for(String set_elements: data_set){
-            fileWriter.println(set_elements);
+            String[] l = set_elements.split("/");
+            String q = l[2]+"/"+l[1]+"/"+l[0];
+            fileWriter.println(q);
         }
         file1_1.close();
         fileWriter.close();
@@ -277,20 +285,41 @@ public class Appoi2 extends javax.swing.JFrame {
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
+        File file2 = new File("Event_new.txt");
+        Scanner file1_2 = new Scanner(file2);
         LinkedList<String> oldData = new LinkedList<>();
         while(file1_1.hasNextLine()){
-            oldData.add(file1_1.nextLine());
+            String p = file1_1.nextLine();
+            if(!(p.equals("Nachalo"))){
+                oldData.add(p);
+            }
         }
         PrintStream fileWriter = new PrintStream("data.txt","UTF-8");
         oldData.add(a);
+        System.out.println(a);
         //Collections.sort(oldData);
-        for(int i=0;i<oldData.size();i++){
-            fileWriter.println(oldData.get(i));
+        fileWriter.println("Nachalo");
+        int br=0;
+        while(file1_2.hasNextLine()){
+            if(br==0){
+                file1_2.nextLine();
+                br++;
+            }
+            if(file1_2.hasNextLine()){
+                String j = file1_2.nextLine();
+                for(int i=0;i<oldData.size();i++){
+                        String[] k = oldData.get(i).split(";");
+                        if(j.equals(k[0])){
+                            fileWriter.println(oldData.get(i));
+                        }
+                }
+            }
         }
         
         ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
         fileWriter.close();
-       
+        file1_2.close();
+        file1_1.close();
     }
     /**
      * @param args the command line arguments

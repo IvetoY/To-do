@@ -1335,7 +1335,6 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4VetoableChange
     public String zero(String data1){
         String[] data2 = data1.split("/");
-        System.out.println(Integer.parseInt(data2[0]));
         if(Integer.parseInt(data2[0])>=1 && Integer.parseInt(data2[0])<=9){
             data2[0] = "0"+data2[0];
         }
