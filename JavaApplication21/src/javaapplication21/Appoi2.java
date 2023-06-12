@@ -201,6 +201,7 @@ public class Appoi2 extends javax.swing.JFrame {
         if(!(event.equals("") || event.matches(regex))){
             String fullEvent;
             String chas = hour+":"+minute;
+            System.out.println(getData()+"dat");
             fullEvent=getData()+";" +chas+";"+event;
             Map<String, String> events = new HashMap<>();
             events = addEvent();
@@ -256,24 +257,30 @@ public class Appoi2 extends javax.swing.JFrame {
         Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
+         
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             String[] split_date = x.split("/");
+            System.out.println("tuk");
             x = split_date[2]+"/"+split_date[1]+"/"+split_date[0];
-            System.out.println(x+"4u52htp9utg4");
-                //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
+            System.out.println("2"+split_date[2]);
+             //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
             data_set.add(x);
         }
         String x1;
         String[] split_date1 = a.split("/");
-        x1 = split_date1[1]+"/"+split_date1[0]+"/"+split_date1[2];
+        x1 = split_date1[2]+"/"+split_date1[1]+"/"+split_date1[0];
         data_set.add(x1);
         Set <String> new_set = new TreeSet<>(data_set);
         PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
         for(String set_elements: new_set){
             String[] split_date2 = set_elements.split("/");
-            String y = split_date2[1]+"/"+split_date2[0]+"/"+split_date2[2];
+            String y = split_date2[2]+"/"+split_date2[1]+"/"+split_date2[0];
+            System.out.println("0"+split_date2[0]);
+            System.out.println("1"+split_date2[1]);
+            
             fileWriter.println(y);
+            
         }
         file1_1.close();
         fileWriter.close();
