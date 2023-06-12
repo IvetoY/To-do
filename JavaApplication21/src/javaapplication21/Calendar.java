@@ -91,7 +91,7 @@ public class Calendar extends javax.swing.JFrame {
         i1.setText(d.get(8));
         j.setText(d.get(9));
         k.setText(d.get(10));
-        l.setText(d.get(11));
+        L.setText(d.get(11));
         m1.setText(d.get(12));
         n.setText(d.get(13));
         o.setText(d.get(14));
@@ -114,7 +114,7 @@ public class Calendar extends javax.swing.JFrame {
         F.setText(d.get(31));
         G.setText(d.get(32));
         H.setText(d.get(33));
-        I.setText(d.get(34));
+        inew.setText(d.get(34));
         J.setText(d.get(35));
         K.setText(d.get(36));
         String m1=m+"";
@@ -219,7 +219,7 @@ public class Calendar extends javax.swing.JFrame {
         k = new javax.swing.JButton();
         r = new javax.swing.JButton();
         y1 = new javax.swing.JButton();
-        l = new javax.swing.JButton();
+        L = new javax.swing.JButton();
         s = new javax.swing.JButton();
         z = new javax.swing.JButton();
         m1 = new javax.swing.JButton();
@@ -254,7 +254,7 @@ public class Calendar extends javax.swing.JFrame {
         jPanel19 = new javax.swing.JPanel();
         H = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
-        I = new javax.swing.JButton();
+        inew = new javax.swing.JButton();
         jPanel21 = new javax.swing.JPanel();
         J = new javax.swing.JButton();
         jPanel22 = new javax.swing.JPanel();
@@ -425,15 +425,15 @@ public class Calendar extends javax.swing.JFrame {
             }
         });
 
-        l.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
-        l.setText("1");
-        l.setBorder(null);
-        l.setBorderPainted(false);
-        l.setContentAreaFilled(false);
-        l.setPreferredSize(new java.awt.Dimension(60, 49));
-        l.addActionListener(new java.awt.event.ActionListener() {
+        L.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
+        L.setText("1");
+        L.setBorder(null);
+        L.setBorderPainted(false);
+        L.setContentAreaFilled(false);
+        L.setPreferredSize(new java.awt.Dimension(60, 49));
+        L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lActionPerformed(evt);
+                LActionPerformed(evt);
             }
         });
 
@@ -871,15 +871,15 @@ public class Calendar extends javax.swing.JFrame {
                 .addComponent(H, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        I.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
-        I.setText("1");
-        I.setBorder(null);
-        I.setBorderPainted(false);
-        I.setContentAreaFilled(false);
-        I.setPreferredSize(new java.awt.Dimension(60, 49));
-        I.addActionListener(new java.awt.event.ActionListener() {
+        inew.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
+        inew.setText("1");
+        inew.setBorder(null);
+        inew.setBorderPainted(false);
+        inew.setContentAreaFilled(false);
+        inew.setPreferredSize(new java.awt.Dimension(60, 49));
+        inew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IActionPerformed(evt);
+                inewActionPerformed(evt);
             }
         });
 
@@ -889,13 +889,13 @@ public class Calendar extends javax.swing.JFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(inew, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(inew, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         J.setFont(new java.awt.Font("Tahoma", 0, 27)); // NOI18N
@@ -994,7 +994,7 @@ public class Calendar extends javax.swing.JFrame {
                             .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(l, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(s, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(z, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1056,7 +1056,7 @@ public class Calendar extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(11, 11, 11)
-                            .addComponent(l, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(s, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1239,7 +1239,7 @@ public class Calendar extends javax.swing.JFrame {
         F.setEnabled(true);
         G.setEnabled(true);
         H.setEnabled(true);
-        I.setEnabled(true);
+        inew.setEnabled(true);
         J.setEnabled(true);
         K.setEnabled(true);
     }
@@ -1281,8 +1281,8 @@ public class Calendar extends javax.swing.JFrame {
         if(H.getText().equals(" ")){
             H.setEnabled(false);
         }
-        if(I.getText().equals(" ")){
-            I.setEnabled(false);
+        if(inew.getText().equals(" ")){
+            inew.setEnabled(false);
         }
         if(J.getText().equals(" ")){
             J.setEnabled(false);
@@ -1458,13 +1458,13 @@ public class Calendar extends javax.swing.JFrame {
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_kActionPerformed
 
-    private void lActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lActionPerformed
-       String a2= I.getText();
+    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
+       String a2= L.getText();
        a2+="/"+data2.getText();
        a2 = zero(a2);
        Appointment.setD(a2);
        click();   // TODO add your handling code here:
-    }//GEN-LAST:event_lActionPerformed
+    }//GEN-LAST:event_LActionPerformed
 
     private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
        String a2= m1.getText();
@@ -1603,12 +1603,12 @@ String a2= H.getText();
        click();         // TODO add your handling code here:
     }//GEN-LAST:event_HActionPerformed
 
-    private void IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IActionPerformed
-String a2= I.getText();
+    private void inewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inewActionPerformed
+        String a2= inew.getText();
        a2+="/"+data2.getText();
        Appointment.setD(a2);
        click();         // TODO add your handling code here:
-    }//GEN-LAST:event_IActionPerformed
+    }//GEN-LAST:event_inewActionPerformed
 
     private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
 String a2= J.getText();
@@ -1668,9 +1668,9 @@ String a2= K.getText();
     private javax.swing.JButton F;
     private javax.swing.JButton G;
     private javax.swing.JButton H;
-    private javax.swing.JButton I;
     private javax.swing.JButton J;
     private javax.swing.JButton K;
+    private javax.swing.JButton L;
     private javax.swing.JButton a;
     private javax.swing.JButton b;
     private javax.swing.JButton c;
@@ -1681,6 +1681,7 @@ String a2= K.getText();
     private javax.swing.JButton g;
     private javax.swing.JButton h;
     private javax.swing.JButton i1;
+    private javax.swing.JButton inew;
     private javax.swing.JButton j;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1710,7 +1711,6 @@ String a2= K.getText();
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JButton k;
-    private javax.swing.JButton l;
     private javax.swing.JButton m1;
     private javax.swing.JButton n;
     private javax.swing.JButton o;

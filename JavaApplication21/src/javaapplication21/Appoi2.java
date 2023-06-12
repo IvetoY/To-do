@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -252,21 +253,27 @@ public class Appoi2 extends javax.swing.JFrame {
         return events;
     }
       public void  addEvent_data(String a)throws FileNotFoundException, UnsupportedEncodingException{
-     Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
+        Set<String> data_set = new HashSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
-          
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
-            
+            String[] split_date = x.split("/");
+            x = split_date[2]+"/"+split_date[1]+"/"+split_date[0];
+            System.out.println(x+"4u52htp9utg4");
                 //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
-                data_set.add(x);
+            data_set.add(x);
         }
-        data_set.add(a);
-        
+        String x1;
+        String[] split_date1 = a.split("/");
+        x1 = split_date1[1]+"/"+split_date1[0]+"/"+split_date1[2];
+        data_set.add(x1);
+        Set <String> new_set = new TreeSet<>(data_set);
         PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
-        for(String set_elements: data_set){
-            fileWriter.println(set_elements);
+        for(String set_elements: new_set){
+            String[] split_date2 = set_elements.split("/");
+            String y = split_date2[1]+"/"+split_date2[0]+"/"+split_date2[2];
+            fileWriter.println(y);
         }
         file1_1.close();
         fileWriter.close();
