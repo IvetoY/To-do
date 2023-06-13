@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Iva
  */
-public class EventList {
+public class EventList {/*
   private static Map<String, String> events = new HashMap<>(); 
 
     public  EventList() throws FileNotFoundException {
@@ -39,6 +39,6 @@ public class EventList {
 }
     public Map<String, String> GetEvents(){
         return events;
-    }
+    }*/
 }
 

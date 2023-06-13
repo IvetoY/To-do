@@ -246,6 +246,7 @@ public class Appoi2 extends javax.swing.JFrame {
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
+        Map<String, String> events = new HashMap<>();
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){

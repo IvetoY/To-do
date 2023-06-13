@@ -446,7 +446,7 @@
                   <Color blue="e8" green="eb" red="15" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\sofia\OneDrive\Desktop\Files - Sofia\To-do\JavaApplication21\src\javaapplication21\Pencil.png"/>
+                  <Image iconType="2" name="C:\Users\Iva\Desktop\Javaproject\To_Do\JavaApplication21\src\javaapplication21\Pencil.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -462,7 +462,7 @@
                   <Color blue="e8" green="eb" red="15" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\sofia\OneDrive\Desktop\Files - Sofia\To-do\JavaApplication21\src\javaapplication21\trash.png"/>
+                  <Image iconType="2" name="C:\Users\Iva\Desktop\Javaproject\To_Do\JavaApplication21\src\javaapplication21\trash.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

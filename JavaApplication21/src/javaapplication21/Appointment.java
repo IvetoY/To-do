@@ -283,12 +283,12 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(21, 235, 232));
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
         jButton14.setBackground(new java.awt.Color(21, 235, 232));
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -496,6 +496,7 @@ public class Appointment extends javax.swing.JFrame {
                removeEvent(a);
                 //System.out.println("tova e a "+a);
                 Appoi2.counter=0;
+                
                 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
