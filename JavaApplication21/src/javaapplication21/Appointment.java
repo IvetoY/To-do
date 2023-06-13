@@ -6,6 +6,8 @@ package javaapplication21;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +15,9 @@ import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication21.Appoi2.events;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -25,11 +28,11 @@ public class Appointment extends javax.swing.JFrame {
     /**
      * Creates new form Appointment
      */
-    public Appointment(){
+    public Appointment() {
         initComponents();
-          setLocationRelativeTo(null);
-          labelDate();
-          setResizable(false);
+        setLocationRelativeTo(null);
+        labelDate();
+        setResizable(false);
         try {
             textCheckeBox();
             /*try {
@@ -42,6 +45,7 @@ public class Appointment extends javax.swing.JFrame {
         }
     }
     public static String d;
+
     /*public static String newEvent;
 
     public static String getNewEvent() {
@@ -52,17 +56,20 @@ public class Appointment extends javax.swing.JFrame {
         Appointment.newEvent = newEvent;
     }*/
     //PROMENLIVA ZA DATA
-    public static String getD(){
+    public static String getD() {
         return d;
     }
-    public static void setD(String d){
-        Appointment.d=d;
+
+    public static void setD(String d) {
+        Appointment.d = d;
     }
-    public void labelDate(){
+
+    public void labelDate() {
         date.setText(getD());
         String data1 = getD();
         Appoi2.setData(data1);
     }
+
     /*public Map addEvent()throws FileNotFoundException{
         Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("data.txt");
@@ -85,7 +92,7 @@ public class Appointment extends javax.swing.JFrame {
         }
         return eventsSorted;
     }*/
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,6 +102,7 @@ public class Appointment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -154,6 +162,7 @@ public class Appointment extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 116, 123));
 
         Event1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event1);
         Event1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event1.setBorderPainted(true);
         Event1.setContentAreaFilled(false);
@@ -164,46 +173,55 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         Event2.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event2);
         Event2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event2.setBorderPainted(true);
         Event2.setContentAreaFilled(false);
 
         Event3.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event3);
         Event3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event3.setBorderPainted(true);
         Event3.setContentAreaFilled(false);
 
         Event4.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event4);
         Event4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event4.setBorderPainted(true);
         Event4.setContentAreaFilled(false);
 
         Event5.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event5);
         Event5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event5.setBorderPainted(true);
         Event5.setContentAreaFilled(false);
 
         Event6.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event6);
         Event6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event6.setBorderPainted(true);
         Event6.setContentAreaFilled(false);
 
         Event7.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event7);
         Event7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event7.setBorderPainted(true);
         Event7.setContentAreaFilled(false);
 
         Event8.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event8);
         Event8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event8.setBorderPainted(true);
         Event8.setContentAreaFilled(false);
 
         Event9.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event9);
         Event9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event9.setBorderPainted(true);
         Event9.setContentAreaFilled(false);
 
         Event10.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(Event10);
         Event10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Event10.setBorderPainted(true);
         Event10.setContentAreaFilled(false);
@@ -248,7 +266,7 @@ public class Appointment extends javax.swing.JFrame {
                 .addComponent(Event9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Event10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 116, 123));
@@ -324,7 +342,7 @@ public class Appointment extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -350,7 +368,7 @@ public class Appointment extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -370,65 +388,159 @@ public class Appointment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Calendar c= new Calendar();
+        Calendar c = new Calendar();
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-public void textCheckeBox() throws FileNotFoundException{
-   int br=0;
-   File file = new File ("data.txt");
-   Scanner fileReader = new Scanner (file);
-   HashMap<String,String> checkBox = new HashMap<>();
-   while(fileReader.hasNextLine()){
-       
-       String x=fileReader.nextLine();
-       String []x_split=x.split(";");
-       if(x_split[0].equals(getD())){
-           checkBox.put(x_split[1], x_split[2]);
-           br++;
-       }
-   }
-   
-   Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);
-   ArrayList<String> sortInfo = new ArrayList<>();
-   for(Map.Entry<String,String> entry : checkBoxSorted.entrySet()){
-       sortInfo.add(entry.getKey()+" "+entry.getValue());
-     }
-   for(int i = br+1; i<=10;i++){
-     sortInfo.add(" ");
-   }
-   Event1.setText(sortInfo.get(0));
-  Event2.setText(sortInfo.get(1));
-  Event3.setText(sortInfo.get(2));
-  Event4.setText(sortInfo.get(3));
-  Event5.setText(sortInfo.get(4));
-  Event6.setText(sortInfo.get(5));
-Event7.setText(sortInfo.get(6));
-Event8.setText(sortInfo.get(7));
-Event9.setText(sortInfo.get(8));
-Event10.setText(sortInfo.get(9));
-  
+    public int br;
+    public Map createMap(HashMap checkBox) throws FileNotFoundException {
+        br=0;
+        File file = new File("data.txt");
+        Scanner fileReader = new Scanner(file);
 
-}
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-       if(!(Event10.getText().equals(" "))){
-           JOptionPane.showMessageDialog(null, "Графика е запълнен."," ", JOptionPane.WARNING_MESSAGE);
-           
-       }
-       else{
-        Appoi2 a = new Appoi2();
-        a.show();
-        dispose();
-       }
+        while (fileReader.hasNextLine()) {
+
+            String x = fileReader.nextLine();
+            String[] x_split = x.split(";");
+            if (x_split[0].equals(getD())) {
+                checkBox.put(x_split[1], x_split[2]);
+                br++;
+            }
+        }
+        Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);
+        return checkBoxSorted;
         
+    }
+
+    public void textCheckeBox() throws FileNotFoundException {
+        HashMap<String, String> checkBox = new HashMap<>();
+        Map<String, String> checkBoxSorted = new TreeMap<String, String>();
+        checkBoxSorted = createMap(checkBox);
+        ArrayList<String> sortInfo = new ArrayList<>();
+        for (Map.Entry<String, String> entry : checkBoxSorted.entrySet()) {
+            sortInfo.add(entry.getKey() + "-" + entry.getValue());
+        }
+        
+        for (int i = br + 1; i <= 10; i++) {
+            sortInfo.add(" ");
+        }
+        Event1.setText(sortInfo.get(0));
+        Event2.setText(sortInfo.get(1));
+        Event3.setText(sortInfo.get(2));
+        Event4.setText(sortInfo.get(3));
+        Event5.setText(sortInfo.get(4));
+        Event6.setText(sortInfo.get(5));
+        Event7.setText(sortInfo.get(6));
+        Event8.setText(sortInfo.get(7));
+        Event9.setText(sortInfo.get(8));
+        Event10.setText(sortInfo.get(9));
+
+    }
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if (!(Event10.getText().equals(" "))) {
+            JOptionPane.showMessageDialog(null, "Графика е запълнен.", " ", JOptionPane.WARNING_MESSAGE);
+
+        } else {
+            Appoi2 a = new Appoi2();
+            a.show();
+            dispose();
+        }
+
     }//GEN-LAST:event_jButton12ActionPerformed
-
+//setSelection(false) za check box
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
+        int br1=0;
+        String a="";
+        if (Event1.isSelected()) {
+            a = Event1.getText();
+            br1++;
+        }
+        if (Event2.isSelected()) {
+            a = Event2.getText();
+            br1++;
+        }
+            if (Event3.isSelected()) {
+            a = Event3.getText();
+            br1++;
+        }
+            if (Event4.isSelected()) {
+            a = Event4.getText();
+            br1++;
+        }
+            if (Event5.isSelected()) {
+            a = Event5.getText();
+            br1++;
+        }
+                    if (Event6.isSelected()) {
+            a = Event6.getText();
+            br1++;
+        }
+        if (Event7.isSelected()) {
+            a = Event7.getText();
+            br1++;
+        }
+            if (Event8.isSelected()) {
+            a = Event8.getText();
+            br1++;
+        }
+            if (Event9.isSelected()) {
+            a = Event9.getText();
+            br1++;
+        }
+            if (Event10.isSelected()) {
+            a = Event10.getText();
+            br1++;
+        }
+           if(br1!=0){
+            try {
+                 String []splitA=a.split("-");
+                a=getD()+";"+splitA[0]+";"+splitA[1];
+               removeEvent(a);
+                System.out.println("tova e a "+a);
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedEncodingException ex) {
+                Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                textCheckeBox();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           }
+           else {
+               JOptionPane.showMessageDialog(null, "Не е избрано събитие, което да бъде премахнато.", " ", JOptionPane.WARNING_MESSAGE);
+           }
+           
     }//GEN-LAST:event_jButton14ActionPerformed
-
+    public void removeEvent(String a) throws FileNotFoundException, UnsupportedEncodingException {
+        File file = new File("data.txt");
+        Scanner fileReader = new Scanner(file);
+        
+        ArrayList<String> dataWithoutEvent = new ArrayList<>();
+        while(fileReader.hasNextLine()){
+            String x = fileReader.nextLine();
+            System.out.println(x+" tova sa redovete ot faila");
+            if(!(x.equals("Nachalo"))){
+                
+                if(!(a.equals(x))){
+                    dataWithoutEvent.add(x);
+                }
+            }
+            
+        }
+         fileReader.close();
+        PrintStream fileWriter = new PrintStream("data.txt", "UTF-8");
+        fileWriter.println("Nachalo");
+        for(String i: dataWithoutEvent){
+            fileWriter.println(i);
+        }
+       fileWriter.close();
+    }
     private void Event1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Event1ActionPerformed
-      
+
     }//GEN-LAST:event_Event1ActionPerformed
 
     /**
@@ -477,6 +589,7 @@ Event10.setText(sortInfo.get(9));
     private javax.swing.JCheckBox Event7;
     private javax.swing.JCheckBox Event8;
     private javax.swing.JCheckBox Event9;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel date;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
