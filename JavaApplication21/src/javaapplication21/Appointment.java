@@ -498,6 +498,7 @@ public class Appointment extends javax.swing.JFrame {
                 a=getD()+";"+splitA[0]+";"+splitA[1];
                removeEvent(a);
                 System.out.println("tova e a "+a);
+                Appoi2.counter=0;
                 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);

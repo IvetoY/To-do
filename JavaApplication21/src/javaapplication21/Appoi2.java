@@ -39,16 +39,16 @@ public class Appoi2 extends javax.swing.JFrame {
         
         
     }
-    private int counter;
+    public static int counter;
     private static String data;
     private Map eventList;
     public static Map<String, String> events = new HashMap<>();
 
-    public int getCounter() {
+    public  int getCounter() {
         return counter;
     }
 
-    public void setCounter(int counter) {
+    public   void setCounter(int counter) {
         this.counter = counter;
     }
 
