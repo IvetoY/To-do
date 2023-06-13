@@ -133,7 +133,6 @@ public class Appointment extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 116, 123));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Избраната дата е ");
 
         date.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -274,7 +273,6 @@ public class Appointment extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(21, 235, 232));
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(0, 0, 0));
         jButton12.setText("+");
         jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton12.setContentAreaFilled(false);
@@ -285,14 +283,12 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(21, 235, 232));
-        jButton13.setForeground(new java.awt.Color(0, 0, 0));
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
         jButton14.setBackground(new java.awt.Color(21, 235, 232));
-        jButton14.setForeground(new java.awt.Color(0, 0, 0));
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -328,7 +324,6 @@ public class Appointment extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(21, 235, 232));
         jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("<-- ");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -452,52 +447,54 @@ public class Appointment extends javax.swing.JFrame {
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         int br1=0;
         String a="";
-        if (Event1.isSelected()) {
+        String regex = "[ ]+";
+        if (Event1.isSelected() && !(Event1.getText().matches(regex))) {
             a = Event1.getText();
             br1++;
         }
-        if (Event2.isSelected()) {
+        if (Event2.isSelected() && !(Event2.getText().matches(regex))) {
             a = Event2.getText();
             br1++;
         }
-            if (Event3.isSelected()) {
+            if (Event3.isSelected() && !(Event3.getText().matches(regex))) {
             a = Event3.getText();
             br1++;
         }
-            if (Event4.isSelected()) {
+            if (Event4.isSelected() && !(Event4.getText().matches(regex))) {
             a = Event4.getText();
             br1++;
         }
-            if (Event5.isSelected()) {
+            if (Event5.isSelected() && !(Event5.getText().matches(regex))) {
             a = Event5.getText();
             br1++;
         }
-                    if (Event6.isSelected()) {
+            if (Event6.isSelected() && !(Event6.getText().matches(regex))) {
             a = Event6.getText();
             br1++;
         }
-        if (Event7.isSelected()) {
+            if (Event7.isSelected() && !(Event7.getText().matches(regex))) {
             a = Event7.getText();
             br1++;
         }
-            if (Event8.isSelected()) {
+            if (Event8.isSelected() && !(Event8.getText().matches(regex))) {
             a = Event8.getText();
             br1++;
         }
-            if (Event9.isSelected()) {
+            if (Event9.isSelected() && !(Event9.getText().matches(regex))) {
             a = Event9.getText();
             br1++;
         }
-            if (Event10.isSelected()) {
+            if (Event10.isSelected() && !(Event10.getText().matches(regex))) {
             a = Event10.getText();
             br1++;
         }
+            buttonGroup1.clearSelection();
            if(br1!=0){
             try {
                  String []splitA=a.split("-");
                 a=getD()+";"+splitA[0]+";"+splitA[1];
                removeEvent(a);
-                System.out.println("tova e a "+a);
+                //System.out.println("tova e a "+a);
                 Appoi2.counter=0;
                 
             } catch (FileNotFoundException ex) {
@@ -523,7 +520,7 @@ public class Appointment extends javax.swing.JFrame {
         ArrayList<String> dataWithoutEvent = new ArrayList<>();
         while(fileReader.hasNextLine()){
             String x = fileReader.nextLine();
-            System.out.println(x+" tova sa redovete ot faila");
+            //System.out.println(x+" tova sa redovete ot faila");
             if(!(x.equals("Nachalo"))){
                 
                 if(!(a.equals(x))){

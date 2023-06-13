@@ -213,6 +213,7 @@ public class Appoi2 extends javax.swing.JFrame {
             if(!events.isEmpty()){
             
             for(Map.Entry<String,String>entry : events.entrySet()){
+                //System.out.println(entry.getKey()+" "+entry.getValue());
                 String []split_value = (entry.getKey()).split(",");
                    if(split_value[0].equals(getData())){
                        //ima problem s dobavqneto na neshta po edno isushto vreme
