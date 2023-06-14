@@ -4,18 +4,21 @@
  */
 package javaapplication21;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
 
 /**
  *
  * @author sofia
  */
-public class Methods {
-    
+public class Methods extends Calendar{
+    private String d;
+
+    //PROMENLIVA ZA DATA
+    public String getD() {
+        return d;
+    }
+
+    public void setD(String d) {
+        Appointment.d = d;
+    }
+
 }

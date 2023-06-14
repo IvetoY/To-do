@@ -45,6 +45,10 @@ public class Appointment extends javax.swing.JFrame {
         }
     }
     public static String d;
+    public void data_get(){
+        Methods get = new Methods();
+        String d = get.getD();
+    }
 
     /*public static String newEvent;
 
@@ -54,7 +58,7 @@ public class Appointment extends javax.swing.JFrame {
 
     public static void setNewEvent(String newEvent) {
         Appointment.newEvent = newEvent;
-    }*/
+    }
     //PROMENLIVA ZA DATA
     public static String getD() {
         return d;
@@ -62,11 +66,12 @@ public class Appointment extends javax.swing.JFrame {
 
     public static void setD(String d) {
         Appointment.d = d;
-    }
+    }*/
 
     public void labelDate() {
-        date.setText(getD());
-        String data1 = getD();
+        data_get();
+        date.setText(d);
+        String data1 = d;
         Appoi2.setData(data1);
     }
 
@@ -283,12 +288,11 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(21, 235, 232));
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\Pencil.png")); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton13.setContentAreaFilled(false);
 
         jButton14.setBackground(new java.awt.Color(21, 235, 232));
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iva\\Desktop\\Javaproject\\To_Do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\trash.png")); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton14.setContentAreaFilled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -397,7 +401,7 @@ public class Appointment extends javax.swing.JFrame {
 
             String x = fileReader.nextLine();
             String[] x_split = x.split(";");
-            if (x_split[0].equals(getD())) {
+            if (x_split[0].equals(d)) {
                 checkBox.put(x_split[1], x_split[2]);
                 br++;
             }
@@ -492,7 +496,7 @@ public class Appointment extends javax.swing.JFrame {
            if(br1!=0){
             try {
                  String []splitA=a.split("-");
-                a=getD()+";"+splitA[0]+";"+splitA[1];
+                a=d+";"+splitA[0]+";"+splitA[1];
                removeEvent(a);
                 //System.out.println("tova e a "+a);
                 Appoi2.counter=0;

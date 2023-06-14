@@ -4,10 +4,8 @@
  */
 package javaapplication21;
 
-import java.awt.Color;
 import java.time.LocalDate;
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,63 +21,57 @@ public class Calendar extends javax.swing.JFrame {
         setResizable(false);
         Label1();
         setLocationRelativeTo(null);
-         
-         
+
     }
-    
-    public void den(int y, int m){
-        
+
+    public void den(int y, int m) {
+
         LinkedList<String> d = new LinkedList<>();
         //ot startowata stranica ot tam ste naprawim default tozi mesec
         //String today = date.getDayOfWeek().toString();
-        LocalDate someday = LocalDate.of(y,m,1);//dneshna data
+        LocalDate someday = LocalDate.of(y, m, 1);//dneshna data
         String day = someday.getDayOfWeek().toString();
         //System.out.println(day);
-        String h1; /*
+        String h1;
+        /*
         proverqvame kolko dni ima mesetsa
-        */
-        if(m==4 || m==6 || m==9 || m==11){
-            for(int i=1;i<=37;i++){
-                if(i<=30){
+         */
+        if (m == 4 || m == 6 || m == 9 || m == 11) {
+            for (int i = 1; i <= 37; i++) {
+                if (i <= 30) {
                     h1 = Integer.toString(i);
                     d.add(h1);
-                }
-                else{
+                } else {
                     d.add(" ");
                 }
             }
-        }
-        else if(m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12){
-            for(int i=1;i<=37;i++){
-                if(i<=31){
+        } else if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+            for (int i = 1; i <= 37; i++) {
+                if (i <= 31) {
                     h1 = Integer.toString(i);
                     d.add(h1);
-                }
-                else{
+                } else {
                     d.add(" ");
                 }
             }
-        }
-        else{
+        } else {
             //dali godinata e visokosna ili ne
             int r;
-            if(y%4==0){
+            if (y % 4 == 0) {
                 r = 29;
-            }
-            else{
+            } else {
                 r = 28;
             }
-            for(int i=1;i<=37;i++){
-                if(i<=r){
+            for (int i = 1; i <= 37; i++) {
+                if (i <= r) {
                     h1 = Integer.toString(i);
                     d.add(h1);
-                }
-                else{
+                } else {
                     d.add(" ");
                 }
             }
         }
-        zap(d,day);
+        zap(d, day);
         //vzima vsichki dni za nastoqshtiq mesetc na koito sme
         a.setText(d.get(0));//moche i linked list w opaska da go naprawim
         b.setText(d.get(1));
@@ -118,51 +110,45 @@ public class Calendar extends javax.swing.JFrame {
         inew.setText(d.get(34));
         J.setText(d.get(35));
         K.setText(d.get(36));
-        String m1=m+"";
-        if(m>=1 && m<10){
-            m1 = "0"+m;
+        String m1 = m + "";
+        if (m >= 1 && m < 10) {
+            m1 = "0" + m;
         }
-        data2.setText(m1+"/"+y);
-        
-        
+        data2.setText(m1 + "/" + y);
+
     }
+
     //
-    public void zap(LinkedList d, String day){
-        if("MONDAY".equals(day)){
+    public void zap(LinkedList d, String day) {
+        if ("MONDAY".equals(day)) {
             //jLabel1.setText("1");
-        }
-        else if(day.equals("TUESDAY")){
+        } else if (day.equals("TUESDAY")) {
             //jLabel5.setText("1");
             d.addFirst(" ");
-        }
-        else if(day.equals("WEDNESDAY")){
+        } else if (day.equals("WEDNESDAY")) {
             //jLabel6.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
-        }
-        else if(day.equals("THURSDAY")){
+        } else if (day.equals("THURSDAY")) {
             //jLabel7.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
-        }
-        else if(day.equals("FRIDAY")){
+        } else if (day.equals("FRIDAY")) {
             //jLabel8.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
-        }
-        else if(day.equals("SATURDAY")){
+        } else if (day.equals("SATURDAY")) {
             //jLabel9.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
-            
-        }
-        else if(day.equals("SUNDAY")){
+
+        } else if (day.equals("SUNDAY")) {
             //jLabel10.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
@@ -172,6 +158,7 @@ public class Calendar extends javax.swing.JFrame {
             d.addFirst(" ");
         }
     }
+
     /*public void got(LinkedList d){
             jLabel1.setText(d.get(0));//moche i linked list w opaska da go naprawim
             jLabel5.setText(d.get(1));
@@ -181,7 +168,7 @@ public class Calendar extends javax.swing.JFrame {
             jLabel9.setText(d.get(5));
             jLabel10.setText(d.get(6));
     }*/
-    public void Label1(){
+    public void Label1() {
         LocalDate date = LocalDate.now();
         String[] a;
         String str = date.toString();
@@ -190,10 +177,9 @@ public class Calendar extends javax.swing.JFrame {
         //String today = date.getDayOfWeek().toString();
         int y = Integer.parseInt(a[0]);
         int m = Integer.parseInt(a[1]);
-        den(y,m);
+        den(y, m);
         textButtonsFalse();
-        
-        
+
     }
 
     /**
@@ -1233,13 +1219,14 @@ public class Calendar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void click(){
+    public void click() {
         Appointment a = new Appointment();
         a.show();
         dispose();
     }
+
     //SLAGA BUTONITE DA MOGAT DA SE NATISKAT
-   public void textButtonsTrue(){
+    public void textButtonsTrue() {
         a.setEnabled(true);
         b.setEnabled(true);
         c.setEnabled(true);
@@ -1256,75 +1243,75 @@ public class Calendar extends javax.swing.JFrame {
         J.setEnabled(true);
         K.setEnabled(true);
     }
-   //SLAGA GI DA NE MOGAT DA SE NATISKAT
+    //SLAGA GI DA NE MOGAT DA SE NATISKAT
+
     public void textButtonsFalse() {
-        if(a.getText().equals(" ")){
+        if (a.getText().equals(" ")) {
             a.setEnabled(false);
-            
-          // a.setBackground(Color.decode("#0E9AA1"));
-          
+
+            // a.setBackground(Color.decode("#0E9AA1"));
         }
-        if(b.getText().equals(" ")){
+        if (b.getText().equals(" ")) {
             b.setEnabled(false);
         }
-        if(c.getText().equals(" ")){
+        if (c.getText().equals(" ")) {
             c.setEnabled(false);
         }
-        if(d1.getText().equals(" ")){
+        if (d1.getText().equals(" ")) {
             d1.setEnabled(false);
         }
-        if(e.getText().equals(" ")){
+        if (e.getText().equals(" ")) {
             e.setEnabled(false);
         }
-        if(f.getText().equals(" ")){
+        if (f.getText().equals(" ")) {
             f.setEnabled(false);
         }
-        if(C.getText().equals(" ")){
+        if (C.getText().equals(" ")) {
             C.setEnabled(false);
         }
-        if(D.getText().equals(" ")){
+        if (D.getText().equals(" ")) {
             D.setEnabled(false);
         }
-        if(E.getText().equals(" ")){
+        if (E.getText().equals(" ")) {
             E.setEnabled(false);
         }
-        if(F.getText().equals(" ")){
+        if (F.getText().equals(" ")) {
             F.setEnabled(false);
         }
-        if(G.getText().equals(" ")){
+        if (G.getText().equals(" ")) {
             G.setEnabled(false);
         }
-        if(H.getText().equals(" ")){
+        if (H.getText().equals(" ")) {
             H.setEnabled(false);
         }
-        if(inew.getText().equals(" ")){
+        if (inew.getText().equals(" ")) {
             inew.setEnabled(false);
         }
-        if(J.getText().equals(" ")){
+        if (J.getText().equals(" ")) {
             J.setEnabled(false);
         }
-        if(K.getText().equals(" ")){
+        if (K.getText().equals(" ")) {
             K.setEnabled(false);
         }
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      //OTIVA NA PEDEN MESETS I PROVERQVA KOI BUTONI NI TRQBVAT
-      //tsvqt 15EBE8 s hex code
+        //OTIVA NA PEDEN MESETS I PROVERQVA KOI BUTONI NI TRQBVAT
+        //tsvqt 15EBE8 s hex code
         textButtonsTrue();
         String w1 = data2.getText();
         //int r = Integer.parseInt(w);
         String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
         int x2 = Integer.parseInt(sp[1]);
-        if(r2==1){
+        if (r2 == 1) {
             r2 = 13;
-            x2 = x2-1;
+            x2 = x2 - 1;
         }
-        den(x2,r2-1);
+        den(x2, r2 - 1);
         textButtonsFalse();
         //prowerqwame kolko dni ima
         //s metod towa koeto prawim i w nachaloto
-        
+
         //z vawisimost koi e denq q 7 if z parwite 7 dni ot sedmicata
         //jLabel1.setText("1");
         //System.out.println(someday.getDayOfWeek().toString());
@@ -1333,29 +1320,33 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       //OTIVA NA SLEDVASHT MESETS
+        //OTIVA NA SLEDVASHT MESETS
         textButtonsTrue();
         String w1 = data2.getText();
         String[] sp = w1.split("/");
         int r2 = Integer.parseInt(sp[0]);
         int x2 = Integer.parseInt(sp[1]);
-        if(r2==12){
+        if (r2 == 12) {
             r2 = 0;
-            x2 = x2+1;
+            x2 = x2 + 1;
         }
-        den(x2,r2+1);
+        den(x2, r2 + 1);
         textButtonsFalse();
     }//GEN-LAST:event_jButton2ActionPerformed
+    public void data_set(String a) {
+        Methods set_data = new Methods();
+        set_data.setD(a);
+    }
 
     private void jLabel4VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel4VetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4VetoableChange
-    public String zero(String data1){
+    public String zero(String data1) {
         String[] data2 = data1.split("/");
-        if(Integer.parseInt(data2[0])>=1 && Integer.parseInt(data2[0])<=9){
-            data2[0] = "0"+data2[0];
+        if (Integer.parseInt(data2[0]) >= 1 && Integer.parseInt(data2[0]) <= 9) {
+            data2[0] = "0" + data2[0];
         }
-        data1 = data2[0]+"/"+data2[1]+"/"+data2[2];
+        data1 = data2[0] + "/" + data2[1] + "/" + data2[2];
         return data1;
     }
     private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
@@ -1364,281 +1355,281 @@ public class Calendar extends javax.swing.JFrame {
         I OTVARQNE NA APPOINTMENT ZASHTOTTO 
         Q IZPOLZVAME NA VSEKI BUTON
         VSICHKI BUTONI SA S EDNAKUV KOD
-        */
-       String a2= a.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();  
+         */
+        String a2 = a.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_aActionPerformed
 
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
-        String a2= E.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); 
+        String a2 = E.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_EActionPerformed
 
     private void cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cActionPerformed
-       String a2= c.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); //tsvqt butoni 0E9AA1 hex   
-       
+        String a2 = c.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click(); //tsvqt butoni 0E9AA1 hex   
+
     }//GEN-LAST:event_cActionPerformed
 
     private void xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xActionPerformed
-       String a2= x.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click(); 
+        String a2 = x.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();
     }//GEN-LAST:event_xActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
-       String a2= b.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); 
+        String a2 = b.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_bActionPerformed
 
     private void d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d1ActionPerformed
-       String a2= d1.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); 
+        String a2 = d1.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_d1ActionPerformed
 
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
-        String a2= C.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click(); 
+        String a2 = C.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();
     }//GEN-LAST:event_CActionPerformed
 
     private void eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eActionPerformed
-        String a2= e.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); // TODO add your handling code here:
+        String a2 = e.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click(); // TODO add your handling code here:
     }//GEN-LAST:event_eActionPerformed
 
     private void fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fActionPerformed
-       String a2= f.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();  // TODO add your handling code here:
+        String a2 = f.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();  // TODO add your handling code here:
     }//GEN-LAST:event_fActionPerformed
 
     private void gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gActionPerformed
-       String a2= g.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = g.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_gActionPerformed
 
     private void hActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hActionPerformed
-       String a2= h.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = h.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_hActionPerformed
 
     private void i1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1ActionPerformed
-       String a2= i1.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = i1.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_i1ActionPerformed
 
     private void jActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jActionPerformed
-       String a2= j.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = j.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_jActionPerformed
 
     private void kActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kActionPerformed
-       String a2= k.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = k.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_kActionPerformed
 
     private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
-       String a2= L.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();   // TODO add your handling code here:
+        String a2 = L.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();   // TODO add your handling code here:
     }//GEN-LAST:event_LActionPerformed
 
     private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
-       String a2= m1.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = m1.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_m1ActionPerformed
 
     private void nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nActionPerformed
-       String a2= n.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); 
+        String a2 = n.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_nActionPerformed
 
     private void oActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oActionPerformed
         // TODO add your handling code here:
-        String a2= o.getText();
-       a2+="/"+data2.getText();
-       a2 = zero(a2);
-       Appointment.setD(a2);
-       click(); 
+        String a2 = o.getText();
+        a2 += "/" + data2.getText();
+        a2 = zero(a2);
+        data_set(a2);
+        click();
     }//GEN-LAST:event_oActionPerformed
 
     private void pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pActionPerformed
-        String a2= p.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click(); 
+        String a2 = p.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();
     }//GEN-LAST:event_pActionPerformed
 
     private void qActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qActionPerformed
-        String a2= q.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click(); 
+        String a2 = q.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();
     }//GEN-LAST:event_qActionPerformed
 
     private void rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActionPerformed
-        String a2= r.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click(); 
+        String a2 = r.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();
     }//GEN-LAST:event_rActionPerformed
 
     private void sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sActionPerformed
-String a2= s.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = s.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_sActionPerformed
 
     private void tActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tActionPerformed
-String a2= t.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = t.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_tActionPerformed
 
     private void uActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uActionPerformed
-String a2= u.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = u.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_uActionPerformed
 
     private void vActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vActionPerformed
-String a2= v.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = v.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_vActionPerformed
 
     private void wActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wActionPerformed
-String a2= w.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = w.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_wActionPerformed
 
     private void y1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_y1ActionPerformed
-String a2= y1.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = y1.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_y1ActionPerformed
 
     private void zActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zActionPerformed
-String a2= z.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = z.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_zActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
-String a2= A.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = A.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
-String a2= B.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = B.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_BActionPerformed
 
     private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
-String a2= D.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = D.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_DActionPerformed
 
     private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
-String a2= F.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = F.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_FActionPerformed
 
     private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
-String a2= G.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = G.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_GActionPerformed
 
     private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
-String a2= H.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = H.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_HActionPerformed
 
     private void inewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inewActionPerformed
-        String a2= inew.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = inew.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_inewActionPerformed
 
     private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
-String a2= J.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = J.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_JActionPerformed
 
     private void KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KActionPerformed
-String a2= K.getText();
-       a2+="/"+data2.getText();
-       Appointment.setD(a2);
-       click();         // TODO add your handling code here:
+        String a2 = K.getText();
+        a2 += "/" + data2.getText();
+        data_set(a2);
+        click();         // TODO add your handling code here:
     }//GEN-LAST:event_KActionPerformed
 
     /**
