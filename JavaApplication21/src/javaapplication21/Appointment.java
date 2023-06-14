@@ -387,10 +387,38 @@ public class Appointment extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            removeFileEvent();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Calendar c = new Calendar();
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+    public void removeFileEvent() throws FileNotFoundException, UnsupportedEncodingException{
+        if(Event1.getText().equals(" ")){
+             File file = new File("Event_new.txt");
+             ArrayList<String> data = new ArrayList<>();
+        Scanner fileReader = new Scanner(file);
+
+        while(fileReader.hasNextLine()){
+            String x=fileReader.nextLine();
+            if(!(x.equals(d))){
+                data.add(x);
+            }
+        }
+        fileReader.close();
+         PrintStream fileWriter = new PrintStream(file,"UTF-8");
+         for(String i: data){
+             fileWriter.println(i);
+         }
+         fileWriter.close();
+        }
+
+    }
     public int br;
     public Map createMap(HashMap checkBox) throws FileNotFoundException {
         br=0;
