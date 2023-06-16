@@ -118,7 +118,6 @@ public class Appoi2 extends javax.swing.JFrame {
         jLabel4.setText("Събитие:");
 
         jButton1.setBackground(new java.awt.Color(14, 110, 123));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\plus.png")); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +127,6 @@ public class Appoi2 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(14, 110, 123));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\close.png")); // NOI18N
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,14 +172,15 @@ public class Appoi2 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1)))
                 .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Hour, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Minute, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Event, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Hour, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Minute, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Event, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -230,6 +229,8 @@ public class Appoi2 extends javax.swing.JFrame {
         String event;
         event = (String)Event.getText();
         String regex = "[ ]+";
+        //methoda vzima eventa spqmo data chas minuta i tekst za subitieto
+        //proverqva za povtarqshti se i ako nqma togava go zapisva
         if(!(event.equals("") || event.matches(regex))){
             String fullEvent;
             String chas = hour+":"+minute;
@@ -248,6 +249,7 @@ public class Appoi2 extends javax.swing.JFrame {
                     if(chas.equals(split_value[1])){
                        counter++;
                        JOptionPane.showMessageDialog(null, "Има съществуващо събитие по това време.","", JOptionPane.WARNING_MESSAGE);
+                       //pokazva suobshtenie za greshki pri nekorekten vhod na danni
                     }
                 }
                 if(counter!=0){
@@ -256,6 +258,7 @@ public class Appoi2 extends javax.swing.JFrame {
             }
             }
             if(counter==0){
+                //ako vs e ok dobavq subitieto v map, vizualizira go i go zapisva v faila
                 addEventData(getData());
                 writeInFile(fullEvent);
          } 
@@ -263,6 +266,7 @@ public class Appoi2 extends javax.swing.JFrame {
         else{
             counter++;
             JOptionPane.showMessageDialog(null, "Събитието не е добавено.", " ", JOptionPane.WARNING_MESSAGE);
+            //ako ne zapishem nishto v tekst poeto
             //da slozim butoni za zatwarqne ili iskam da poprawq events(pri+ dali posledniq buton e prazen ili ne
         }
         //da naprawim prowerka ako weche ima w tokkowa chasanasto
@@ -271,6 +275,7 @@ public class Appoi2 extends javax.swing.JFrame {
     public Map addEvent()throws FileNotFoundException{
          //TUK SHTE PAZIM SORIRANI SUBITIQ tova otiva v
         File file1 = new File("data.txt");
+        //method koito dobavq novoto subitie v map i nkaraq go zapisva v faila s info za vsichki subitiq
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
         Map<String, String> events = new HashMap<>();
@@ -291,6 +296,7 @@ public class Appoi2 extends javax.swing.JFrame {
         Set<String> data_set = new TreeSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
+        //method za zapisvane na datata na subitiq vvuv faila Event_new, za da posle se otbeleji che denq e zaet
         while(file1_1.hasNextLine()){
             String x = file1_1.nextLine();
             if(!x.equals("Nachalo")){
@@ -358,7 +364,7 @@ public class Appoi2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+ //   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -368,12 +374,12 @@ public class Appoi2 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Appoi2().setVisible(true);
-            }
-        });
-    }
+  //      java.awt.EventQueue.invokeLater(new Runnable() {
+   //         public void run() {
+  //              new Appoi2().setVisible(true);
+  //          }
+  //      });
+ //   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Event;

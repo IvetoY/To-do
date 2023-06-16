@@ -22,19 +22,20 @@ public class Start extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+                UIManager.put( "nimbusOrange", new Color( 14,110,123 ) );
         Thread t = new Thread(new Runnable(){
             
             @Override
             public void run() {
-                jProgressBar1.setForeground(Color.blue);
+   
+                 try {
                 for(int i=0;i<=100;i++){
-            jProgressBar1.setValue(i);
-                    try {
+                         jProgressBar1.setValue(i);
                         Thread.sleep(50);
-                    } catch (InterruptedException ex) {
+       }//slojnost o(n) n = 101, for tsikli 101 puti
+                 } catch (InterruptedException ex) {
                         Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
                     }
-        }
         Calendar a = new Calendar();
         a.show();
         dispose();
@@ -61,9 +62,9 @@ public class Start extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(14, 110, 123));
         jPanel1.setPreferredSize(new java.awt.Dimension(842, 600));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Logo.png")); // NOI18N
-
-        jProgressBar1.setBackground(new java.awt.Color(255, 0, 204));
+        jProgressBar1.setBackground(new java.awt.Color(51, 51, 255));
+        jProgressBar1.setForeground(new java.awt.Color(0, 51, 153));
+        jProgressBar1.setBorderPainted(false);
         jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jProgressBar1.setStringPainted(true);
 

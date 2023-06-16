@@ -73,6 +73,7 @@ public class Appointment extends javax.swing.JFrame {
         date.setText(d);
         String data1 = d;
         Appoi2.setData(data1);
+        //slaga korektna data kato q vzima ot predhodni framove
     }
 
     /*public Map addEvent()throws FileNotFoundException{
@@ -394,6 +395,7 @@ public class Appointment extends javax.swing.JFrame {
              File file = new File("Event_new.txt");
              ArrayList<String> data = new ArrayList<>();
         Scanner fileReader = new Scanner(file);
+        //metod koito maha datat ot faila s zaeti dati ako iztriem vs subitiq
 
         while(fileReader.hasNextLine()){
             String x=fileReader.nextLine();
@@ -415,7 +417,7 @@ public class Appointment extends javax.swing.JFrame {
         br=0;
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
-
+//suzdava map koito izpolzvame za chvck box
         while (fileReader.hasNextLine()) {
 
             String x = fileReader.nextLine();
@@ -438,10 +440,11 @@ public class Appointment extends javax.swing.JFrame {
         for (Map.Entry<String, String> entry : checkBoxSorted.entrySet()) {
             sortInfo.add(entry.getKey() + "-" + entry.getValue());
         }
-        
+        //podrejda vs subitiq
         for (int i = br + 1; i <= 10; i++) {
             sortInfo.add(" ");
         }
+        //ako nqma dobaveni subitq adva tekst " "
         Event1.setText(sortInfo.get(0));
         Event2.setText(sortInfo.get(1));
         Event3.setText(sortInfo.get(2));
@@ -452,18 +455,19 @@ public class Appointment extends javax.swing.JFrame {
         Event8.setText(sortInfo.get(7));
         Event9.setText(sortInfo.get(8));
         Event10.setText(sortInfo.get(9));
-
+//slaga tekst na vs check boxove
     }
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         if (!(Event10.getText().equals(" "))) {
-            JOptionPane.showMessageDialog(null, "Графика е запълнен.", " ", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Графика е запълнен.", " ", JOptionPane.WARNING_MESSAGE);//slojnost O(1)
 
         } else {
             Appoi2 a = new Appoi2();
             a.show();
             dispose();
         }
+        //pri natiskane na buton za dobavqne na subitie i nalichie na zaoulneni 10 subitiq izliza suobshtenie
 
     }//GEN-LAST:event_jButton12ActionPerformed
 //setSelection(false) za check box
@@ -511,6 +515,7 @@ public class Appointment extends javax.swing.JFrame {
             a = Event10.getText();
             br1++;
         }
+            //vzima teksta ot selctnatiq buton
             buttonGroup1.clearSelection();
            if(br1!=0){
             try {
@@ -520,7 +525,7 @@ public class Appointment extends javax.swing.JFrame {
                 //System.out.println("tova e a "+a);
                 Appoi2.counter=0;
                 
-                
+                //maha subitieto
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedEncodingException ex) {
@@ -528,6 +533,8 @@ public class Appointment extends javax.swing.JFrame {
             }
             try {
                 textCheckeBox();
+                //slaga podnovenata informatsiq 
+                //bukvalbo pravi refreshavane na straanitsata
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -540,7 +547,7 @@ public class Appointment extends javax.swing.JFrame {
     public void removeEvent(String a) throws FileNotFoundException, UnsupportedEncodingException {
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
-        
+        //nkaraq maha subitieto i ot faila s data chas subitie
         ArrayList<String> dataWithoutEvent = new ArrayList<>();
         while(fileReader.hasNextLine()){
             String x = fileReader.nextLine();
@@ -598,7 +605,7 @@ public class Appointment extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+          public void run() {
                 new Appointment().setVisible(true);
             }
         });
