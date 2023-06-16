@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication21.Appointment.d;
 
 /**
  *
@@ -32,17 +31,12 @@ public class Calendar extends javax.swing.JFrame {
     }
 
     public void den(int y, int m) {
-
         LinkedList<String> d = new LinkedList<>();
-        //ot startowata stranica ot tam ste naprawim default tozi mesec
-        //String today = date.getDayOfWeek().toString();
         LocalDate someday = LocalDate.of(y, m, 1);//dneshna data
         String day = someday.getDayOfWeek().toString();
-        //System.out.println(day);
         String h1;
-        /*
-        proverqvame kolko dni ima mesetsa
-         */
+        
+        //proverqvame kolko dni ima mesetsa I ZAPALWA SAOTWETNITE DNI KATO NOMERA W TQH AKO NQMA PRAZNO PROSTRANSTWO
         if (m == 4 || m == 6 || m == 9 || m == 11) {
             for (int i = 1; i <= 37; i++) {
                 if (i <= 30) {
@@ -80,7 +74,7 @@ public class Calendar extends javax.swing.JFrame {
         }
         zap(d, day);
         //vzima vsichki dni za nastoqshtiq mesetc na koito sme
-        a.setText(d.get(0));//moche i linked list w opaska da go naprawim
+        a.setText(d.get(0));
         b.setText(d.get(1));
         c.setText(d.get(2));
         d1.setText(d.get(3));
@@ -130,30 +124,24 @@ public class Calendar extends javax.swing.JFrame {
 
     }
 
-    //
+    //ZAPALWA BUTONITE S PRAZNO PROSTRANSTWO AKO NQMA TAKAW DEN OT SEDMICATA W MESECA
     public void zap(LinkedList d, String day) {
         if ("MONDAY".equals(day)) {
-            //jLabel1.setText("1");
         } else if (day.equals("TUESDAY")) {
-            //jLabel5.setText("1");
             d.addFirst(" ");
         } else if (day.equals("WEDNESDAY")) {
-            //jLabel6.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
         } else if (day.equals("THURSDAY")) {
-            //jLabel7.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
         } else if (day.equals("FRIDAY")) {
-            //jLabel8.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
         } else if (day.equals("SATURDAY")) {
-            //jLabel9.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
@@ -161,7 +149,6 @@ public class Calendar extends javax.swing.JFrame {
             d.addFirst(" ");
 
         } else if (day.equals("SUNDAY")) {
-            //jLabel10.setText("1");
             d.addFirst(" ");
             d.addFirst(" ");
             d.addFirst(" ");
@@ -170,23 +157,13 @@ public class Calendar extends javax.swing.JFrame {
             d.addFirst(" ");
         }
     }
-
-    /*public void got(LinkedList d){
-            jLabel1.setText(d.get(0));//moche i linked list w opaska da go naprawim
-            jLabel5.setText(d.get(1));
-            jLabel6.setText(d.get(2));
-            jLabel7.setText(d.get(3));
-            jLabel8.setText(d.get(4));
-            jLabel9.setText(d.get(5));
-            jLabel10.setText(d.get(6));
-    }*/
+    
+    //PRI OTWARQNE NA KLASA SE OTWARQ SEGASHNIQ MESEC
     public void Label1() {
         LocalDate date = LocalDate.now();
         String[] a;
         String str = date.toString();
         a = str.split("-");
-        //ot startowata stranica ot tam ste naprawim default tozi mesec
-        //String today = date.getDayOfWeek().toString();
         int y = Integer.parseInt(a[0]);
         int m = Integer.parseInt(a[1]);
         den(y, m);
@@ -235,7 +212,7 @@ public class Calendar extends javax.swing.JFrame {
     }
     public void color() throws FileNotFoundException{
         color_black();
-        //gledaiki faila proverqvame koi zapisis sa ot v momenta otvoreniq meset
+        //gledaiki faila proverqvame DALI IMA EVENT W NAKOI OT DNITE MU sa ot v momenta otvoreniq meset
         File file = new File("Event_new.txt");
         Scanner fileReader = new Scanner(file);
         Methods m = new Methods() {};
@@ -258,14 +235,14 @@ public class Calendar extends javax.swing.JFrame {
                         den1 = split1[0];
                     }
                     proverka(den1);
-                    //ako ima zapisis vikame tazi fuktsiq
+                    //ako ima zapis vikame tazi fuktsiq
                 }
             }
         }
         fileReader.close();
     }
+    //PROWERQWA DALI W DADEN DEN OT TOZI MESEC IMA EVENT AKO DA GO OTSVETQVA W BQLO
     public void proverka(String den){
-        //trq proverqva s zapisan den vuv faila i ako se matchv at go otsvetqva v bqlo
         if(a.getText().equals(den)){
             a.setForeground(Color.white);
         }
@@ -1242,7 +1219,7 @@ public class Calendar extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(28, 200, 208));
@@ -1412,7 +1389,7 @@ public class Calendar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //PREMINAWANE W APPOINTMENT
     public void click() {
         Appointment a = new Appointment();
         a.show();
@@ -1438,13 +1415,11 @@ public class Calendar extends javax.swing.JFrame {
         J.setEnabled(true);
         K.setEnabled(true);
     }
+    
     //SLAGA GI DA NE MOGAT DA SE NATISKAT
-
     public void textButtonsFalse() {
         if (a.getText().equals(" ")) {
             a.setEnabled(false);
-
-            // a.setBackground(Color.decode("#0E9AA1"));
         }
         if (b.getText().equals(" ")) {
             b.setEnabled(false);
@@ -1491,8 +1466,7 @@ public class Calendar extends javax.swing.JFrame {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //OTIVA NA PEDEN MESETS I PROVERQVA KOI BUTONI NI TRQBVAT
-        //tsvqt 15EBE8 s hex code
-        textButtonsTrue();
+        textButtonsTrue();//WSICHKI BUTONI DA RABOTQT
         String w1 = data2.getText();
         //int r = Integer.parseInt(w);
         String[] sp = w1.split("/");
@@ -1502,16 +1476,10 @@ public class Calendar extends javax.swing.JFrame {
             r2 = 13;
             x2 = x2 - 1;
         }
-        den(x2, r2 - 1);
-        textButtonsFalse();
+        den(x2, r2 - 1);//GODINA I MESEC
+        textButtonsFalse();//BUTONITE KOITO NE TRQBWAT ZA SAOTWETNIQ MESEC STAWAT NEAKTIWNI
         //prowerqwame kolko dni ima
         //s metod towa koeto prawim i w nachaloto
-
-        //z vawisimost koi e denq q 7 if z parwite 7 dni ot sedmicata
-        //jLabel1.setText("1");
-        //System.out.println(someday.getDayOfWeek().toString());
-        //jLabel1.setText(a[2]);
-        //jLabel2.setText(a[])
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1528,6 +1496,7 @@ public class Calendar extends javax.swing.JFrame {
         den(x2, r2 + 1);
         textButtonsFalse();
     }//GEN-LAST:event_jButton2ActionPerformed
+    //WZIMANE NA SEGASHNA DATA
     public void data_set(String a) {
         Methods set_data = new Methods() {};
         set_data.setD(a);
@@ -1536,6 +1505,7 @@ public class Calendar extends javax.swing.JFrame {
     private void jLabel4VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel4VetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4VetoableChange
+    //DOBAWQNE NA 0 ZA DA IZGLEXDA DATATA TAKA:00/00/0000
     public String zero(String data1) {
         String[] data2 = data1.split("/");
         if (Integer.parseInt(data2[0]) >= 1 && Integer.parseInt(data2[0]) <= 9) {
@@ -1544,6 +1514,7 @@ public class Calendar extends javax.swing.JFrame {
         data1 = data2[0] + "/" + data2[1] + "/" + data2[2];
         return data1;
     }
+    //WSICHKI BUTONI PRI NATISKANE DA WRASTAT DATATA I DA PREMINAWA W APPOI2
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
         String a2 = E.getText();
         a2 += "/" + data2.getText();
@@ -1557,7 +1528,7 @@ public class Calendar extends javax.swing.JFrame {
         a2 += "/" + data2.getText();
         a2 = zero(a2);
         data_set(a2);
-        click(); //tsvqt butoni 0E9AA1 hex   
+        click(); 
 
     }//GEN-LAST:event_cActionPerformed
 
@@ -1829,28 +1800,9 @@ public class Calendar extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        System.exit(0);//IZLIZANE OT KROGRAMATA
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-   public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-       
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-             new Calendar().setVisible(true);
-            }
-      });
-   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton A;

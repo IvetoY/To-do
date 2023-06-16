@@ -15,8 +15,6 @@ import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication21.Appoi2.events;
-import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,38 +33,18 @@ public class Appointment extends javax.swing.JFrame {
         setResizable(false);
         try {
             textCheckeBox();
-            /*try {
-            addEvent();
-            } catch (FileNotFoundException ex) {
-            Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public static String d;
-    public void data_get(){
-        Methods get = new Methods() {};
+
+    //WZIMA DENQ OT MESECA KOITO GLEDAME
+    public void data_get() {
+        Methods get = new Methods() {
+        };
         String d = get.getD();
     }
-
-    /*public static String newEvent;
-
-    public static String getNewEvent() {
-        return newEvent;
-    }
-
-    public static void setNewEvent(String newEvent) {
-        Appointment.newEvent = newEvent;
-    }
-    //PROMENLIVA ZA DATA
-    public static String getD() {
-        return d;
-    }
-
-    public static void setD(String d) {
-        Appointment.d = d;
-    }*/
 
     public void labelDate() {
         data_get();
@@ -75,29 +53,6 @@ public class Appointment extends javax.swing.JFrame {
         Appoi2.setData(data1);
         //slaga korektna data kato q vzima ot predhodni framove
     }
-
-    /*public Map addEvent()throws FileNotFoundException{
-        Map<String, String> events = new HashMap<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
-        File file1 = new File("data.txt");
-        Scanner file1_1 = new Scanner(file1);
-        ArrayList<Object> oldData = new ArrayList<>();
-        while(file1_1.hasNextLine()){
-            String x = file1_1.nextLine();
-            if(!x.equals("Nachalo")){
-                String[] split = x.split(";"); //RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                events.put(split[1],split[2]);
-            }
-        }
-        file1_1.close();
-        
-        ///s!!!!!!!!!!!!!
-        Map<String, String> eventsSorted = new TreeMap<String, String>(events);//tuk trqbwa da se znae che sa ot edna data map w map?
-        /*for(Map.Entry<String,String> entry : eventsSorted.entrySet()){
-            System.out.println("Sorted: "+entry.getKey()+entry.getValue());//SORTIRANI SUBITIQ
-            
-        }
-        return eventsSorted;
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,7 +112,6 @@ public class Appointment extends javax.swing.JFrame {
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\plus.png")); // NOI18N
         jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton12.setPreferredSize(new java.awt.Dimension(36, 36));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -350,7 +304,7 @@ public class Appointment extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 6, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64))
         );
@@ -359,7 +313,7 @@ public class Appointment extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
@@ -386,50 +340,52 @@ public class Appointment extends javax.swing.JFrame {
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //PREMINAWA W KLASA cALENDAR - WRASTANE NAZAD
         Calendar c = new Calendar();
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void removeFileEvent() throws FileNotFoundException, UnsupportedEncodingException{
-        if(Event1.getText().equals(" ")){
-             File file = new File("Event_new.txt");
-             ArrayList<String> data = new ArrayList<>();
-        Scanner fileReader = new Scanner(file);
-        //metod koito maha datat ot faila s zaeti dati ako iztriem vs subitiq
+    //AKO SME IZTRILI WSICHKI SABITIQ W DADEN DEN GO MAHA OT FAILA KADETO SE ZAPISWAT DNITE W KOITO IMA EVENT
+    public void removeFileEvent() throws FileNotFoundException, UnsupportedEncodingException {
+        if (Event1.getText().equals(" ")) {//AKO NQMA SABITIE
+            File file = new File("Event_new.txt");
+            ArrayList<String> data = new ArrayList<>();
+            Scanner fileReader = new Scanner(file);
+            //metod koito maha datat ot faila s zaeti dati ako iztriem vs subitiq
 
-        while(fileReader.hasNextLine()){
-            String x=fileReader.nextLine();
-            if(!(x.equals(d))){
-                data.add(x);
+            while (fileReader.hasNextLine()) {
+                String x = fileReader.nextLine();
+                if (!(x.equals(d))) {//WZIMA WSICHKI OSTANALI DNI W KOITO WSE OSTE IMA EVENTI
+                    data.add(x);
+                }
             }
-        }
-        fileReader.close();
-         PrintStream fileWriter = new PrintStream(file,"UTF-8");
-         for(String i: data){
-             fileWriter.println(i);
-         }
-         fileWriter.close();
+            fileReader.close();
+            PrintStream fileWriter = new PrintStream(file, "UTF-8");
+            for (String i : data) {
+                fileWriter.println(i);//SLAGA GI NANOWO VAV FAILA
+            }
+            fileWriter.close();
         }
 
     }
     public int br;
+
     public Map createMap(HashMap checkBox) throws FileNotFoundException {
-        br=0;
+        br = 0;
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
-//suzdava map koito izpolzvame za chvck box
+        //suzdava map koito izpolzvame za chEck box
         while (fileReader.hasNextLine()) {
-
             String x = fileReader.nextLine();
             String[] x_split = x.split(";");
             if (x_split[0].equals(d)) {
-                checkBox.put(x_split[1], x_split[2]);
+                checkBox.put(x_split[1], x_split[2]);//SLAGA EVENTITE W MAP(CHAS I EBENT)
                 br++;
             }
         }
-        Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);
-        return checkBoxSorted;
-        
+        Map<String, String> checkBoxSorted = new TreeMap<String, String>(checkBox);//SORTIRA GI PO CHASOWE(CHAS=KEY)
+        return checkBoxSorted;//VRASTA SORTIRANIQ MAP
+
     }
 
     public void textCheckeBox() throws FileNotFoundException {
@@ -439,11 +395,11 @@ public class Appointment extends javax.swing.JFrame {
         ArrayList<String> sortInfo = new ArrayList<>();
         for (Map.Entry<String, String> entry : checkBoxSorted.entrySet()) {
             sortInfo.add(entry.getKey() + "-" + entry.getValue());
-        }
+        }//SLAGA CHASA I EVENTA ZAEDNO KATO ELEMNTI NA ARRAYLIST
         //podrejda vs subitiq
         for (int i = br + 1; i <= 10; i++) {
             sortInfo.add(" ");
-        }
+        }//AKO SA PO-MALKO OT 10 EVENTA DA POPALNI OSTANALITE CHECKBOXOWE S PRAZNO MQSTO
         //ako nqma dobaveni subitq adva tekst " "
         Event1.setText(sortInfo.get(0));
         Event2.setText(sortInfo.get(1));
@@ -455,7 +411,7 @@ public class Appointment extends javax.swing.JFrame {
         Event8.setText(sortInfo.get(7));
         Event9.setText(sortInfo.get(8));
         Event10.setText(sortInfo.get(9));
-//slaga tekst na vs check boxove
+        //slaga tekst na vs check boxove
     }
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -470,11 +426,12 @@ public class Appointment extends javax.swing.JFrame {
         //pri natiskane na buton za dobavqne na subitie i nalichie na zaoulneni 10 subitiq izliza suobshtenie
 
     }//GEN-LAST:event_jButton12ActionPerformed
-//setSelection(false) za check box
+
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        int br1=0;
-        String a="";
+        int br1 = 0;
+        String a = "";
         String regex = "[ ]+";
+        //GLEDA KOI CHECK BOX E SELEKTORAN I DALI IMA EVENT W NEGO
         if (Event1.isSelected() && !(Event1.getText().matches(regex))) {
             a = Event1.getText();
             br1++;
@@ -483,90 +440,81 @@ public class Appointment extends javax.swing.JFrame {
             a = Event2.getText();
             br1++;
         }
-            if (Event3.isSelected() && !(Event3.getText().matches(regex))) {
+        if (Event3.isSelected() && !(Event3.getText().matches(regex))) {
             a = Event3.getText();
             br1++;
         }
-            if (Event4.isSelected() && !(Event4.getText().matches(regex))) {
+        if (Event4.isSelected() && !(Event4.getText().matches(regex))) {
             a = Event4.getText();
             br1++;
         }
-            if (Event5.isSelected() && !(Event5.getText().matches(regex))) {
+        if (Event5.isSelected() && !(Event5.getText().matches(regex))) {
             a = Event5.getText();
             br1++;
         }
-            if (Event6.isSelected() && !(Event6.getText().matches(regex))) {
+        if (Event6.isSelected() && !(Event6.getText().matches(regex))) {
             a = Event6.getText();
             br1++;
         }
-            if (Event7.isSelected() && !(Event7.getText().matches(regex))) {
+        if (Event7.isSelected() && !(Event7.getText().matches(regex))) {
             a = Event7.getText();
             br1++;
         }
-            if (Event8.isSelected() && !(Event8.getText().matches(regex))) {
+        if (Event8.isSelected() && !(Event8.getText().matches(regex))) {
             a = Event8.getText();
             br1++;
         }
-            if (Event9.isSelected() && !(Event9.getText().matches(regex))) {
+        if (Event9.isSelected() && !(Event9.getText().matches(regex))) {
             a = Event9.getText();
             br1++;
         }
-            if (Event10.isSelected() && !(Event10.getText().matches(regex))) {
+        if (Event10.isSelected() && !(Event10.getText().matches(regex))) {
             a = Event10.getText();
             br1++;
         }
-            //vzima teksta ot selctnatiq buton
-            buttonGroup1.clearSelection();
-           if(br1!=0){
+        //vzima teksta ot selctnatiq buton
+        buttonGroup1.clearSelection();//DA NE STOI OTBELQZANO SLED KATO E ISTRITO
+        if (br1 != 0) {//AKO IMA EVENT W SELECTIRANIQ CHECK BOX
             try {
-                 String []splitA=a.split("-");
-                a=d+";"+splitA[0]+";"+splitA[1];
-               removeEvent(a);
-                //System.out.println("tova e a "+a);
-                Appoi2.counter=0;
-                
-                //maha subitieto
+                String[] splitA = a.split("-");
+                a = d + ";" + splitA[0] + ";" + splitA[1];
+                removeEvent(a);//PREMAHWA EVENTA OT FAILA I CHECK BOXA
+                Appoi2.counter = 0;
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedEncodingException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                textCheckeBox();
-                //slaga podnovenata informatsiq 
-                //bukvalbo pravi refreshavane na straanitsata
+                textCheckeBox();//PODREZDA GI NANOWO ZA DA NE OSTANE PRZEN SAOTWETNIQ CHECK BOX OT KOITO SME IZTRILI EVENT
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Appointment.class.getName()).log(Level.SEVERE, null, ex);
             }
-           }
-           else {
-               JOptionPane.showMessageDialog(null, "Не е избрано събитие, което да бъде премахнато.", " ", JOptionPane.WARNING_MESSAGE);
-           }
-           
+        } else {
+            JOptionPane.showMessageDialog(null, "Не е избрано събитие, което да бъде премахнато.", " ", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
+    //PREMAHWA SABITIETO OT FAILA
     public void removeEvent(String a) throws FileNotFoundException, UnsupportedEncodingException {
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
         //nkaraq maha subitieto i ot faila s data chas subitie
         ArrayList<String> dataWithoutEvent = new ArrayList<>();
-        while(fileReader.hasNextLine()){
+        while (fileReader.hasNextLine()) {
             String x = fileReader.nextLine();
-            //System.out.println(x+" tova sa redovete ot faila");
-            if(!(x.equals("Nachalo"))){
-                
-                if(!(a.equals(x))){
+            if (!(x.equals("Nachalo"))) {
+                if (!(a.equals(x))) {//NE ZAPISWA SABITIETO KOETO ISKAME DA IZTRIEM W ARRAYLISTA
                     dataWithoutEvent.add(x);
                 }
             }
-            
         }
-         fileReader.close();
+        fileReader.close();
         PrintStream fileWriter = new PrintStream("data.txt", "UTF-8");
         fileWriter.println("Nachalo");
-        for(String i: dataWithoutEvent){
-            fileWriter.println(i);
+        for (String i : dataWithoutEvent) {
+            fileWriter.println(i);//PREZAPISWA EVENTITE WAW FAILA BEZ IZTRITIQ
         }
-       fileWriter.close();
+        fileWriter.close();
     }
     private void Event1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Event1ActionPerformed
 
@@ -576,40 +524,6 @@ public class Appointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Event6ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Appointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Appointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Appointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Appointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-          public void run() {
-                new Appointment().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox Event1;

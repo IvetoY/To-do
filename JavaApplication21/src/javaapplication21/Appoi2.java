@@ -4,22 +4,16 @@
  */
 package javaapplication21;
 
-import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,25 +24,24 @@ import javax.swing.JOptionPane;
  * @author Iva
  */
 public class Appoi2 extends javax.swing.JFrame {
+
     /**
      * Creates new form Appoi2
      */
     public Appoi2() {
         initComponents();
         setLocationRelativeTo(null);
-        
-        
     }
     public static int counter;
     private static String data;
     private Map eventList;
     public static Map<String, String> events = new HashMap<>();
 
-    public  int getCounter() {
+    public int getCounter() {
         return counter;
     }
 
-    public   void setCounter(int counter) {
+    public void setCounter(int counter) {
         this.counter = counter;
     }
 
@@ -67,12 +60,7 @@ public class Appoi2 extends javax.swing.JFrame {
     public void setEventList(Map eventList) {
         this.eventList = eventList;
     }
-     
-    
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,6 +106,7 @@ public class Appoi2 extends javax.swing.JFrame {
         jLabel4.setText("Събитие:");
 
         jButton1.setBackground(new java.awt.Color(14, 110, 123));
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\plus.png")); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +116,7 @@ public class Appoi2 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(14, 110, 123));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\close.png")); // NOI18N
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,18 +189,17 @@ public class Appoi2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    try {
-        getCurrentEvent();
-    } catch (FileNotFoundException ex) {
-        Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (UnsupportedEncodingException ex) {
-        Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        if(counter==0){
-            Appointment a= new Appointment();
+        try {
+            getCurrentEvent();//PROWERKI DALI E WALIDNA POPALNENATA INFORMACIQ
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Appoi2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (counter == 0) {//AKO E BILO DOBAWENO WALIDNO SABITIE SE WRASTA W APPOINTMENT
+            Appointment a = new Appointment();
             a.show();
             dispose();
-            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -220,166 +209,138 @@ public class Appoi2 extends javax.swing.JFrame {
         a.show();
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+    //PROWERQWA DALI EVENTA E WALIDEN
     public void getCurrentEvent() throws FileNotFoundException, UnsupportedEncodingException {
-        counter=0;
+        counter = 0;
         String hour;
         String minute;
-        hour=(String) Hour.getSelectedItem();
-        minute=(String) Minute.getSelectedItem();
+        hour = (String) Hour.getSelectedItem();
+        minute = (String) Minute.getSelectedItem();
         String event;
-        event = (String)Event.getText();
+        event = (String) Event.getText();
         String regex = "[ ]+";
         //methoda vzima eventa spqmo data chas minuta i tekst za subitieto
-        //proverqva za povtarqshti se i ako nqma togava go zapisva
-        if(!(event.equals("") || event.matches(regex))){
+        //proverqva za povtarqshti se i ako nqma togava da zapisva
+        if (!(event.equals("") || event.matches(regex))) {
             String fullEvent;
-            String chas = hour+":"+minute;
-            fullEvent=getData()+";"+chas+";"+event;//00/00/00;00:00;jej
-            //System.out.println(fullEvent);
+            String chas = hour + ":" + minute;
+            fullEvent = getData() + ";" + chas + ";" + event;//00/00/00;00:00;jjjjjj
             Map<String, String> events = new HashMap<>();
             events = addEvent();
-            if(!events.isEmpty()){
-            
-            for(Map.Entry<String,String>entry : events.entrySet()){
-                //System.out.println(entry.getKey()+" "+entry.getValue());
-                String []split_value = (entry.getKey()).split(",");
-                   if(split_value[0].equals(getData())){
-                       //ima problem s dobavqneto na neshta po edno isushto vreme
-                       //pri vsqko startirani ne chete starite neshta i pozvolqva da vuveda neshto dva puti
-                    if(chas.equals(split_value[1])){
-                       counter++;
-                       JOptionPane.showMessageDialog(null, "Има съществуващо събитие по това време.","", JOptionPane.WARNING_MESSAGE);
-                       //pokazva suobshtenie za greshki pri nekorekten vhod na danni
+            if (!events.isEmpty()) {
+                for (Map.Entry<String, String> entry : events.entrySet()) {
+                    String[] split_value = (entry.getKey()).split(",");
+                    if (split_value[0].equals(getData())) {
+                        if (chas.equals(split_value[1])) {
+                            counter++;
+                            JOptionPane.showMessageDialog(null, "Има съществуващо събитие по това време.", "", JOptionPane.WARNING_MESSAGE);
+                            //pokazva suobshtenie za greshki pri nekorekten vhod na danni
+                        }
+                    }
+                    if (counter != 0) {
+                        break;
                     }
                 }
-                if(counter!=0){
-                    break;  
-                }
             }
-            }
-            if(counter==0){
+            if (counter == 0) {
                 //ako vs e ok dobavq subitieto v map, vizualizira go i go zapisva v faila
-                addEventData(getData());
-                writeInFile(fullEvent);
-         } 
-         }
-        else{
+                addEventData(getData());//ZAPISKA WAW FAILA EVENT
+                writeInFile(fullEvent);//ZAPISWA WAW FAILA DATA
+            }
+        } else {
             counter++;
             JOptionPane.showMessageDialog(null, "Събитието не е добавено.", " ", JOptionPane.WARNING_MESSAGE);
-            //ako ne zapishem nishto v tekst poeto
-            //da slozim butoni za zatwarqne ili iskam da poprawq events(pri+ dali posledniq buton e prazen ili ne
+            //ako ne zapishem nishto v tekst pole
         }
-        //da naprawim prowerka ako weche ima w tokkowa chasanasto
     }
-    
-    public Map addEvent()throws FileNotFoundException{
-         //TUK SHTE PAZIM SORIRANI SUBITIQ tova otiva v
+    //OTWARQNE NA FAIL DATA I VZIMANE NA INFORMACIAQTA OT NEGO
+    public Map addEvent() throws FileNotFoundException {
+        //TUK SHTE PAZIM SORIRANI SUBITIQ tova otiva v
         File file1 = new File("data.txt");
         //method koito dobavq novoto subitie v map i nkaraq go zapisva v faila s info za vsichki subitiq
         Scanner file1_1 = new Scanner(file1);
         ArrayList<Object> oldData = new ArrayList<>();
         Map<String, String> events = new HashMap<>();
-        while(file1_1.hasNextLine()){
+        while (file1_1.hasNextLine()) {
             String x = file1_1.nextLine();
-            if(!x.equals("Nachalo")){
+            if (!x.equals("Nachalo")) {
                 String[] split = x.split(";");
-                String k=split[0]+","+split[1];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
-                events.put(k,split[2]);
+                String k = split[0] + "," + split[1];//RAZDELQ CHASA OT SUBITIETO I GI IZPOLVA KATO KEY I VALUE
+                events.put(k, split[2]);
             }
-            //ot uka idva problema
-            //ako poslednata zapisana data e sushtata kato segashnata ne dava da se povtarqt, no ako e nqkoq ot po gornite pozvolqva
         }
         file1_1.close();
         return events;
     }
-      public void addEventData(String a)throws FileNotFoundException, UnsupportedEncodingException{
+
+    //DOBAWQ INFORMACIQTA CHE NA DOBAQWENATA DATA IMA EVENT
+    public void addEventData(String a) throws FileNotFoundException, UnsupportedEncodingException {
         Set<String> data_set = new TreeSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
         //method za zapisvane na datata na subitiq vvuv faila Event_new, za da posle se otbeleji che denq e zaet
-        while(file1_1.hasNextLine()){
+        while (file1_1.hasNextLine()) {
             String x = file1_1.nextLine();
-            if(!x.equals("Nachalo")){
-               //String[] split = x.split(" "); //RAZDELQ CHASA i  SUBITIETO ot godinata  I GI IZPOLVA KATO v seta
-                //data_set.add(x);
+            if (!x.equals("Nachalo")) {
                 String[] h = x.split("/");
-                String j = h[2]+"/"+h[1]+"/"+h[0];
+                String j = h[2] + "/" + h[1] + "/" + h[0];
                 data_set.add(j);
             }
         }
         String[] k = a.split("/");
-        String y = k[2]+"/"+k[1]+"/"+k[0];
+        String y = k[2] + "/" + k[1] + "/" + k[0];
         data_set.add(y);
-        PrintStream fileWriter = new PrintStream("Event_new.txt","UTF-8");
+        PrintStream fileWriter = new PrintStream("Event_new.txt", "UTF-8");
         fileWriter.println("Nachalo");
-        for(String set_elements: data_set){
+        for (String set_elements : data_set) {
             String[] l = set_elements.split("/");
-            String q = l[2]+"/"+l[1]+"/"+l[0];
+            String q = l[2] + "/" + l[1] + "/" + l[0];
             fileWriter.println(q);
         }
         file1_1.close();
         fileWriter.close();
-        
+
     }
-    
-    public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException{
+
+    //ZAPISWA INFORMAVIQTA ZA DATA, CHAS I EVENT WAW FAILA DATA
+    public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException {
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);
         File file2 = new File("Event_new.txt");
         Scanner file1_2 = new Scanner(file2);
         LinkedList<String> oldData = new LinkedList<>();
-        while(file1_1.hasNextLine()){
+        while (file1_1.hasNextLine()) {
             String p = file1_1.nextLine();
-            if(!(p.equals("Nachalo"))){
+            if (!(p.equals("Nachalo"))) {
                 oldData.add(p);
             }
         }
-        PrintStream fileWriter = new PrintStream("data.txt","UTF-8");
+        PrintStream fileWriter = new PrintStream("data.txt", "UTF-8");
         oldData.add(a);
         System.out.println(a);
-        //Collections.sort(oldData);
         fileWriter.println("Nachalo");
-        int br=0;
-        while(file1_2.hasNextLine()){
-            if(br==0){
+        int br = 0;
+        //STE GI SORTIRA TAKA SHE DANNITE OT EDNA I SASTA DATA DA SA NA EDNO MQSTO
+        while (file1_2.hasNextLine()) {
+            if (br == 0) {
                 file1_2.nextLine();
                 br++;
             }
-            if(file1_2.hasNextLine()){
+            if (file1_2.hasNextLine()) {
                 String j = file1_2.nextLine();
-                for(int i=0;i<oldData.size();i++){
-                        String[] k = oldData.get(i).split(";");
-                        if(j.equals(k[0])){
-                            fileWriter.println(oldData.get(i));
-                        }
+                for (int i = 0; i < oldData.size(); i++) {
+                    String[] k = oldData.get(i).split(";");
+                    if (j.equals(k[0])) {
+                        fileWriter.println(oldData.get(i));
+                    }
                 }
             }
         }
-        
         ////ZAPAZVA STARATA INFORMATSIQ VUUV FAILA
         fileWriter.close();
         file1_2.close();
         file1_1.close();
     }
-    /**
-     * @param args the command line arguments
-     */
- //   public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-       
-        //</editor-fold>
-
-        /* Create and display the form */
-  //      java.awt.EventQueue.invokeLater(new Runnable() {
-   //         public void run() {
-  //              new Appoi2().setVisible(true);
-  //          }
-  //      });
- //   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Event;
