@@ -46,7 +46,7 @@ public class Appointment extends javax.swing.JFrame {
     }
     public static String d;
     public void data_get(){
-        Methods get = new Methods();
+        Methods get = new Methods() {};
         String d = get.getD();
     }
 

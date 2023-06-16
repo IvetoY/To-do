@@ -7,6 +7,7 @@ package javaapplication21;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Start extends javax.swing.JFrame {
             
             @Override
             public void run() {
-                jProgressBar1.setBackground(Color.BLUE);
+                jProgressBar1.setForeground(Color.blue);
                 for(int i=0;i<=100;i++){
             jProgressBar1.setValue(i);
                     try {
@@ -63,6 +64,7 @@ public class Start extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\sofia\\OneDrive\\Desktop\\Files - Sofia\\To-do\\JavaApplication21\\src\\javaapplication21\\Logo.png")); // NOI18N
 
         jProgressBar1.setBackground(new java.awt.Color(255, 0, 204));
+        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jProgressBar1.setStringPainted(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

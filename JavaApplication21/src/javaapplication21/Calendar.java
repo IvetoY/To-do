@@ -4,8 +4,15 @@
  */
 package javaapplication21;
 
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javaapplication21.Appointment.d;
 
 /**
  *
@@ -115,6 +122,11 @@ public class Calendar extends javax.swing.JFrame {
             m1 = "0" + m;
         }
         data2.setText(m1 + "/" + y);
+        try {
+            color();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Calendar.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -181,7 +193,186 @@ public class Calendar extends javax.swing.JFrame {
         textButtonsFalse();
 
     }
-
+    public void color_black(){
+        a.setForeground(Color.black);
+        b.setForeground(Color.black);
+        c.setForeground(Color.black);
+        d1.setForeground(Color.black);
+        e.setForeground(Color.black);
+        f.setForeground(Color.black);
+        g.setForeground(Color.black);
+        h.setForeground(Color.black);
+        i1.setForeground(Color.black);
+        j.setForeground(Color.black);
+        k.setForeground(Color.black);
+        L.setForeground(Color.black);
+        m1.setForeground(Color.black);
+        n.setForeground(Color.black);
+        o.setForeground(Color.black);
+        p.setForeground(Color.black);
+        q.setForeground(Color.black);
+        r.setForeground(Color.black);
+        s.setForeground(Color.black);
+        t.setForeground(Color.black);
+        u.setForeground(Color.black);
+        v.setForeground(Color.black);
+        w.setForeground(Color.black);
+        x.setForeground(Color.black);
+        y1.setForeground(Color.black);
+        z.setForeground(Color.black);
+        A.setForeground(Color.black);
+        B.setForeground(Color.black);
+        C.setForeground(Color.black);
+        D.setForeground(Color.black);
+        E.setForeground(Color.black);
+        F.setForeground(Color.black);
+        G.setForeground(Color.black);
+        H.setForeground(Color.black);
+        inew.setForeground(Color.black);
+        J.setForeground(Color.black);
+        K.setForeground(Color.black);
+    }
+    public void color() throws FileNotFoundException{
+        color_black();
+        File file = new File("Event_new.txt");
+        Scanner fileReader = new Scanner(file);
+        Methods m = new Methods() {};
+        String year = m.getD();
+        String data = data2.getText();
+        while (fileReader.hasNextLine()) {
+            String x = fileReader.nextLine();
+            if(!(x.equals("Nachalo"))){
+                String[] split1 = x.split("/");
+                String mesecGod = split1[1]+"/"+split1[2];
+                if(data.equals(mesecGod)){
+                    String regex = "[0][0-9]";
+                    char den;
+                    String den1;
+                    if(split1[0].matches(regex)){
+                        den = split1[0].charAt(1);
+                        den1 = den+"";
+                    }
+                    else{
+                        den1 = split1[0];
+                    }
+                    proverka(den1);
+                }
+            }
+        }
+        fileReader.close();
+    }
+    public void proverka(String den){
+        if(a.getText().equals(den)){
+            a.setForeground(Color.white);
+        }
+        else if(b.getText().equals(den)){
+            b.setForeground(Color.white);
+        }
+        else if(c.getText().equals(den)){
+            c.setForeground(Color.white);
+        }
+        else if(d1.getText().equals(den)){
+            d1.setForeground(Color.white);
+        }
+        else if(e.getText().equals(den)){
+            e.setForeground(Color.white);
+        }
+        else if(f.getText().equals(den)){
+            f.setForeground(Color.white);
+        }
+        else if(g.getText().equals(den)){
+            g.setForeground(Color.white);
+        }
+        else if(h.getText().equals(den)){
+            h.setForeground(Color.white);
+        }
+        else if(i1.getText().equals(den)){
+            i1.setForeground(Color.white);
+        }
+        else if(j.getText().equals(den)){
+            j.setForeground(Color.white);
+        }
+        else if(k.getText().equals(den)){
+            k.setForeground(Color.white);
+        }
+        else if(L.getText().equals(den)){
+            L.setForeground(Color.white);
+        }
+        else if(m1.getText().equals(den)){
+            m1.setForeground(Color.white);
+        }
+        else if(n.getText().equals(den)){
+            n.setForeground(Color.white);
+        }
+        else if(o.getText().equals(den)){
+            o.setForeground(Color.white);
+        }
+        else if(p.getText().equals(den)){
+            p.setForeground(Color.white);
+        }
+        else if(q.getText().equals(den)){
+            q.setForeground(Color.white);
+        }
+        else if(r.getText().equals(den)){
+            r.setForeground(Color.white);
+        }
+        else if(s.getText().equals(den)){
+            s.setForeground(Color.white);
+        }
+        else if(t.getText().equals(den)){
+            t.setForeground(Color.white);
+        }
+        else if(u.getText().equals(den)){
+            u.setForeground(Color.white);
+        }
+        else if(v.getText().equals(den)){
+            v.setForeground(Color.white);
+        }
+        else if(w.getText().equals(den)){
+            w.setForeground(Color.white);
+        }
+        else if(x.getText().equals(den)){
+            x.setForeground(Color.white);
+        }
+        else if(y1.getText().equals(den)){
+            y1.setForeground(Color.white);
+        }
+        else if(z.getText().equals(den)){
+            z.setForeground(Color.white);
+        }
+        else if(A.getText().equals(den)){
+            A.setForeground(Color.white);
+        }
+        else if(B.getText().equals(den)){
+            B.setForeground(Color.white);
+        }
+        else if(C.getText().equals(den)){
+            C.setForeground(Color.white);
+        }
+        else if(D.getText().equals(den)){
+            D.setForeground(Color.white);
+        }
+        else if(E.getText().equals(den)){
+            E.setForeground(Color.white);
+        }
+        else if(F.getText().equals(den)){
+            F.setForeground(Color.white);
+        }
+        else if(G.getText().equals(den)){
+            G.setForeground(Color.white);
+        }
+        else if(H.getText().equals(den)){
+            H.setForeground(Color.white);
+        }
+        else if(inew.getText().equals(den)){
+            inew.setForeground(Color.white);
+        }
+        else if(J.getText().equals(den)){
+            J.setForeground(Color.white);
+        }else if(K.getText().equals(den)){
+            K.setForeground(Color.white);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1333,7 +1524,7 @@ public class Calendar extends javax.swing.JFrame {
         textButtonsFalse();
     }//GEN-LAST:event_jButton2ActionPerformed
     public void data_set(String a) {
-        Methods set_data = new Methods();
+        Methods set_data = new Methods() {};
         set_data.setD(a);
     }
 

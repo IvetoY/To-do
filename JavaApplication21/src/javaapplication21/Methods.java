@@ -9,12 +9,12 @@ package javaapplication21;
  *
  * @author sofia
  */
-public class Methods extends Calendar{
-    private String d;
+abstract class Methods{
+    private static String d;
 
     //PROMENLIVA ZA DATA
     public String getD() {
-        return d;
+       return d;
     }
 
     public void setD(String d) {
