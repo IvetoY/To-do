@@ -272,7 +272,7 @@ public class Appoi2 extends javax.swing.JFrame {
         file1_1.close();
         return events;
     }
-
+    
     //DOBAWQ INFORMACIQTA CHE NA DOBAQWENATA DATA IMA EVENT
     public void addEventData(String a) throws FileNotFoundException, UnsupportedEncodingException {//O(nlogn) -> zaradi TreeSet
         Set<String> data_set = new TreeSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
@@ -317,7 +317,6 @@ public class Appoi2 extends javax.swing.JFrame {
         }
         PrintStream fileWriter = new PrintStream("data.txt", "UTF-8");
         oldData.add(a);
-        System.out.println(a);
         fileWriter.println("Nachalo");
         int br = 0;
         //STE GI SORTIRA TAKA SHE DANNITE OT EDNA I SASTA DATA DA SA NA EDNO MQSTO
