@@ -345,7 +345,7 @@ public class Appointment extends javax.swing.JFrame {
         c.show();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-    //AKO SME IZTRILI WSICHKI SABITIQ W DADEN DEN GO MAHA OT FAILA KADETO SE ZAPISWAT DNITE W KOITO IMA EVENT
+    //AKO SME IZTRILI WSICHKI SABITIQ W DADEN DEN GO MAHA OT FAILA KADETO SE ZAPISWAT DNITE W KOITO IMA EVENT; O(n), kadeto n e nomera na redowete waw faila Event
     public void removeFileEvent() throws FileNotFoundException, UnsupportedEncodingException {
         if (Event1.getText().equals(" ")) {//AKO NQMA SABITIE
             File file = new File("Event_new.txt");
@@ -370,7 +370,7 @@ public class Appointment extends javax.swing.JFrame {
     }
     public int br;
 
-    public Map createMap(HashMap checkBox) throws FileNotFoundException {
+    public Map createMap(HashMap checkBox) throws FileNotFoundException {//O(n), kadeto n e nomera na redowete waw faila Event
         br = 0;
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
@@ -388,7 +388,7 @@ public class Appointment extends javax.swing.JFrame {
 
     }
 
-    public void textCheckeBox() throws FileNotFoundException {
+    public void textCheckeBox() throws FileNotFoundException {//O(n+logn) -> logn e na TreeMap, a n e broq elemnti waw faila Event
         HashMap<String, String> checkBox = new HashMap<>();
         Map<String, String> checkBoxSorted = new TreeMap<String, String>();
         checkBoxSorted = createMap(checkBox);
@@ -495,7 +495,7 @@ public class Appointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton14ActionPerformed
     //PREMAHWA SABITIETO OT FAILA
-    public void removeEvent(String a) throws FileNotFoundException, UnsupportedEncodingException {
+    public void removeEvent(String a) throws FileNotFoundException, UnsupportedEncodingException {//O(n+m), akdeto n e broq elementi waw faila, a m e broq elemnti v dataWithoutEvent 
         File file = new File("data.txt");
         Scanner fileReader = new Scanner(file);
         //nkaraq maha subitieto i ot faila s data chas subitie

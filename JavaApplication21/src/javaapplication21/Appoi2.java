@@ -254,7 +254,7 @@ public class Appoi2 extends javax.swing.JFrame {
         }
     }
     //OTWARQNE NA FAIL DATA I VZIMANE NA INFORMACIAQTA OT NEGO
-    public Map addEvent() throws FileNotFoundException {
+    public Map addEvent() throws FileNotFoundException {//O(n), kadeto n e btoq redowe vav faila data.txt
         //TUK SHTE PAZIM SORIRANI SUBITIQ tova otiva v
         File file1 = new File("data.txt");
         //method koito dobavq novoto subitie v map i nkaraq go zapisva v faila s info za vsichki subitiq
@@ -274,7 +274,7 @@ public class Appoi2 extends javax.swing.JFrame {
     }
 
     //DOBAWQ INFORMACIQTA CHE NA DOBAQWENATA DATA IMA EVENT
-    public void addEventData(String a) throws FileNotFoundException, UnsupportedEncodingException {
+    public void addEventData(String a) throws FileNotFoundException, UnsupportedEncodingException {//O(nlogn) -> zaradi TreeSet
         Set<String> data_set = new TreeSet<>(); //TUK SHTE PAZIM SORIRANI SUBITIQ
         File file1 = new File("Event_new.txt");
         Scanner file1_1 = new Scanner(file1);
@@ -302,7 +302,7 @@ public class Appoi2 extends javax.swing.JFrame {
 
     }
 
-    //ZAPISWA INFORMAVIQTA ZA DATA, CHAS I EVENT WAW FAILA DATA
+    //ZAPISWA INFORMAVIQTA ZA DATA, CHAS I EVENT WAW FAILA DATA; //O(n+m), akdeto n e broq elementi waw faila Event.txt, a m e broq elemnti w drugiq fail data.txt
     public void writeInFile(String a) throws FileNotFoundException, UnsupportedEncodingException {
         File file1 = new File("data.txt");
         Scanner file1_1 = new Scanner(file1);

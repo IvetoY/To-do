@@ -30,7 +30,7 @@ public class Calendar extends javax.swing.JFrame {
 
     }
 
-    public void den(int y, int m) {
+    public void den(int y, int m) { //O(1+x), kadeto x e slosnosta na zap(), koqto e O(1)
         LinkedList<String> d = new LinkedList<>();
         LocalDate someday = LocalDate.of(y, m, 1);//dneshna data
         String day = someday.getDayOfWeek().toString();
@@ -124,7 +124,7 @@ public class Calendar extends javax.swing.JFrame {
 
     }
 
-    //ZAPALWA BUTONITE S PRAZNO PROSTRANSTWO AKO NQMA TAKAW DEN OT SEDMICATA W MESECA
+    //ZAPALWA BUTONITE S PRAZNO PROSTRANSTWO AKO NQMA TAKAW DEN OT SEDMICATA W MESECA; O(1)
     public void zap(LinkedList d, String day) {
         if ("MONDAY".equals(day)) {
         } else if (day.equals("TUESDAY")) {
@@ -158,7 +158,7 @@ public class Calendar extends javax.swing.JFrame {
         }
     }
     
-    //PRI OTWARQNE NA KLASA SE OTWARQ SEGASHNIQ MESEC
+    //PRI OTWARQNE NA KLASA SE OTWARQ SEGASHNIQ MESEC; O(n), kadeto n e dalzinata na stringa koito splitwame
     public void Label1() {
         LocalDate date = LocalDate.now();
         String[] a;
@@ -171,7 +171,7 @@ public class Calendar extends javax.swing.JFrame {
 
     }
     public void color_black(){
-        //slaga teksta na vs butoni cheren pri otvarqne na nov mesets
+        //slaga teksta na vs butoni cheren pri otvarqne na nov mesets; O(1)
         a.setForeground(Color.black);
         b.setForeground(Color.black);
         c.setForeground(Color.black);
@@ -210,10 +210,11 @@ public class Calendar extends javax.swing.JFrame {
         J.setForeground(Color.black);
         K.setForeground(Color.black);
     }
-    public void color() throws FileNotFoundException{
+    
+    public void color() throws FileNotFoundException{//O(n), kadeto n e broq redowe waw faila Event.txt
         color_black();
         //gledaiki faila proverqvame DALI IMA EVENT W NAKOI OT DNITE MU sa ot v momenta otvoreniq meset
-        File file = new File("Event_new.txt");
+        File file = new File("Event_new.txt");//O(n), kato n = broi redowe waw faila
         Scanner fileReader = new Scanner(file);
         Methods m = new Methods() {};
         String year = m.getD();
@@ -241,7 +242,7 @@ public class Calendar extends javax.swing.JFrame {
         }
         fileReader.close();
     }
-    //PROWERQWA DALI W DADEN DEN OT TOZI MESEC IMA EVENT AKO DA GO OTSVETQVA W BQLO
+    //PROWERQWA DALI W DADEN DEN OT TOZI MESEC IMA EVENT AKO DA GO OTSVETQVA W BQLO; O(1)
     public void proverka(String den){
         if(a.getText().equals(den)){
             a.setForeground(Color.white);
@@ -1397,7 +1398,7 @@ public class Calendar extends javax.swing.JFrame {
         //pri natiskane na vseki buton
     }
 
-    //SLAGA BUTONITE DA MOGAT DA SE NATISKAT
+    //SLAGA BUTONITE DA MOGAT DA SE NATISKAT; O(1)
     public void textButtonsTrue() {
         a.setEnabled(true);
         b.setEnabled(true);
@@ -1416,7 +1417,7 @@ public class Calendar extends javax.swing.JFrame {
         K.setEnabled(true);
     }
     
-    //SLAGA GI DA NE MOGAT DA SE NATISKAT
+    //SLAGA GI DA NE MOGAT DA SE NATISKAT; O(1)
     public void textButtonsFalse() {
         if (a.getText().equals(" ")) {
             a.setEnabled(false);
@@ -1483,10 +1484,10 @@ public class Calendar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //OTIVA NA SLEDVASHT MESETS
+        //OTIVA NA SLEDVASHT MESETS; O(1)
         textButtonsTrue();
         String w1 = data2.getText();
-        String[] sp = w1.split("/");
+        String[] sp = w1.split("/");//O(n)
         int r2 = Integer.parseInt(sp[0]);
         int x2 = Integer.parseInt(sp[1]);
         if (r2 == 12) {
@@ -1505,7 +1506,7 @@ public class Calendar extends javax.swing.JFrame {
     private void jLabel4VetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jLabel4VetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4VetoableChange
-    //DOBAWQNE NA 0 ZA DA IZGLEXDA DATATA TAKA:00/00/0000
+    //DOBAWQNE NA 0 ZA DA IZGLEXDA DATATA TAKA:00/00/0000; const.ili O(1)
     public String zero(String data1) {
         String[] data2 = data1.split("/");
         if (Integer.parseInt(data2[0]) >= 1 && Integer.parseInt(data2[0]) <= 9) {
